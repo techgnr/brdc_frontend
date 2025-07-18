@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+.border-half {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: inherit;
+  }
+}
+
+.slick-slider {
+  position: relative;
+
+  .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all;
+  }
+
+  &:hover {
+    .slick-arrow {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .slick-prev {
+      left: 0;
+    }
+
+    .slick-next {
+      right: 0;
+    }
+  }
+
+  .slick-active {
+    .banner__text {
+      p {
+        animation: ScrollLeft 0.5s linear;
+      }
+
+      h1 {
+        animation: ScrollTop 0.5s linear;
+      }
+    }
+  }
+}
