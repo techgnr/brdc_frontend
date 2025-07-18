@@ -1,7 +1,6 @@
 import { useState } from "react";
 import data from "../../utils/data.json";
 import {
-  Mountain,
   Mail,
   Phone,
   Menu,
