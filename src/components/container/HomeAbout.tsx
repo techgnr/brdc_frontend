@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 
 const HomeAbout = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
           title="Who We Are"

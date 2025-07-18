@@ -21,7 +21,7 @@ const HomePage = () => {
           <EventsSingle />
           <StoriesSingle />
         </SectionWrapper>
-        <Programs />
+        <Programs isHome />
         <TeamsSection />
         <HorizontalSlider />
       </main>

@@ -13,7 +13,7 @@ const StoriesSingle = () => {
         ))}
       </div>
       <div className="flex justify-center mt-8">
-        <Button className="px-4">View More</Button>
+        <Button className="px-6 py-3">View More</Button>
       </div>
     </div>
   );

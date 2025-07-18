@@ -26,8 +26,8 @@ const ThematicArea = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute bottom-0 transform translate-y-14 left-0 w-full p-4 bg-black/30 transition duration-300 group-hover:translate-y-0 ">
-                <h3 className="text-lg text-center font-bold text-white pb-4 line-clamp-1">
+              <div className="absolute bottom-0 transform translate-y-16 left-0 w-full p-4 bg-black/30 transition duration-300 group-hover:translate-y-0 ">
+                <h3 className="text-lg text-center font-bold text-white pb-4 line-clamp-1 transition duration-300 group-hover:text-green-300">
                   {item.title}
                 </h3>
                 <div className="text-center">

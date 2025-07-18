@@ -3,6 +3,8 @@ import "./styles/App.css";
 import MainLayout from "./layout/MainLayout";
 import PageNotFoundLayout from "./layout/PageNotFoundLayout";
 import HomePage from "./pages/HomePage";
+import BlogsPage from "./pages/BlogsPage";
+import EventsPage from "./pages/EventsPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -13,6 +15,14 @@ function App() {
         {
           path: "/",
           element: <HomePage />,
+        },
+        {
+          path: "/blogs",
+          element: <BlogsPage />,
+        },
+        {
+          path: "/events",
+          element: <EventsPage />,
         },
       ],
     },
