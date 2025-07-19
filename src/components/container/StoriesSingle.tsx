@@ -1,7 +1,5 @@
-import { Link } from "react-router";
 import data from "../../utils/data.json";
 import PaginatedData from "../PaginatedData";
-import Button from "../ui/Button";
 import Heading from "../ui/Heading";
 import QuickCard from "../ui/QuickCard";
 import LinkButton from "../ui/LinkButton";

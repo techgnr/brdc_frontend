@@ -11,7 +11,6 @@ import {
   Instagram,
 } from "lucide-react";
 import { Link } from "react-router";
-import Button from "../ui/Button";
 import LinkButton from "../ui/LinkButton";
 
 const Header = () => {
