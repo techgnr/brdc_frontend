@@ -269,5 +269,72 @@
       "uploaded_date": "2024-08-05",
       "content": ""
     }
+  ],
+  "galleryImage": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "alt": "Children smiling in rural Nepal",
+      "heading": "Hope for Every Child",
+      "title": "Education",
+      "description": "Empowering children in remote areas with access to quality education and opportunities.",
+      "images": [
+        "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ]
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "alt": "Children smiling in rural Nepal",
+      "heading": "Hope for Every Child",
+      "title": "Education for All",
+      "description": "Empowering children in remote areas with access to quality education and opportunities.",
+      "images": [
+        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ]
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "alt": "Children smiling in rural Nepal",
+      "heading": "Hope for Every Child",
+      "title": "Education for All",
+      "description": "Empowering children in remote areas with access to quality education and opportunities.",
+      "images": [
+        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ]
+    }
+  ],
+  "galleryVideo": [
+    {
+      "id": 1,
+      "video": "https://www.youtube.com/embed/your-video-url",
+      "alt": "Volunteers planting trees",
+      "heading": "Green Nepal",
+      "title": "Protecting Our Environment",
+      "description": "Working together to preserve Nepal’s natural beauty and biodiversity."
+    },
+    {
+      "id": 2,
+      "video": "https://www.youtube.com/embed/your-video-url",
+      "alt": "Volunteers planting trees",
+      "heading": "Green Nepal",
+      "title": "Protecting Our Environment",
+      "description": "Working together to preserve Nepal’s natural beauty and biodiversity."
+    },
+    {
+      "id": 3,
+      "video": "https://www.youtube.com/embed/your-video-url",
+      "alt": "Volunteers planting trees",
+      "heading": "Green Nepal",
+      "title": "Protecting Our Environment",
+      "description": "Working together to preserve Nepal’s natural beauty and biodiversity."
+    }
   ]
 }

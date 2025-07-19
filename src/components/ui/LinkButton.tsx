@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   path?: string;
+  state?: any;
 }
 
 const LinkButton: React.FC<ButtonProps> = ({
@@ -13,6 +14,7 @@ const LinkButton: React.FC<ButtonProps> = ({
   variant = "primary",
   className = "",
   path = "/",
+  state = null,
 }) => {
   const baseStyles =
     "inline-flex px-4 py-3 items-center cursor-pointer justify-center text-sm font-medium rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
@@ -28,7 +30,7 @@ const LinkButton: React.FC<ButtonProps> = ({
   const combinedClasses = `${baseStyles} ${variants[variant]} ${className}`;
 
   return (
-    <Link to={path} className={combinedClasses}>
+    <Link to={path} className={combinedClasses} state={state}>
       {children}
     </Link>
   );

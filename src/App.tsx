@@ -46,6 +46,14 @@ function App() {
           element: <GalleryPage />,
         },
         {
+          path: "/gallery/:slug",
+          element: <GalleryPage />,
+        },
+        {
+          path: "/gallery/:slug/:id",
+          element: <GalleryPage />,
+        },
+        {
           path: "/publication-document",
           element: <PublicationDocumentsPage />,
         },
