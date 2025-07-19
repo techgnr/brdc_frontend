@@ -15,39 +15,42 @@
   "navigation": [
     {
       "label": "Home",
-      "href": "#home"
+      "href": "/"
     },
     {
       "label": "Who We Are",
       "dropdown": [
-        { "label": "Vision and Mission", "href": "#mission" },
-        { "label": "Core Values", "href": "#values" },
-        { "label": "Our Reach", "href": "#reach" },
-        { "label": "Out Team", "href": "#team" }
+        { "label": "Vision and Mission", "href": "/mission" },
+        { "label": "Core Values", "href": "/values" },
+        { "label": "Our Reach", "href": "/reach" },
+        { "label": "Out Team", "href": "/team" }
       ]
     },
     {
       "label": "What We Do",
       "dropdown": [
-        { "label": "Education", "href": "#education" },
-        { "label": "Healthcare", "href": "#healthcare" },
-        { "label": "Environment", "href": "#environment" }
+        { "label": "Education", "href": "/education" },
+        { "label": "Healthcare", "href": "/healthcare" },
+        { "label": "Environment", "href": "/environment" }
       ]
     },
     {
       "label": "Resources and Media",
       "dropdown": [
-        { "label": "Events", "href": "#events" },
-        { "label": "News", "href": "#news" },
-        { "label": "Gallery", "href": "#gallery" },
-        { "label": "Success Stories", "href": "#testimonials" },
-        { "label": "Blog", "href": "#blog" },
-        { "label": "Publications and Documents", "href": "#documents" }
+        { "label": "Events", "href": "/events" },
+        { "label": "News", "href": "/news" },
+        { "label": "Gallery", "href": "/gallery" },
+        { "label": "Success Stories", "href": "/stories" },
+        { "label": "Blog", "href": "/blog" },
+        {
+          "label": "Publications and Documents",
+          "href": "/publication-document"
+        }
       ]
     },
     {
       "label": "Contact",
-      "href": "#contact"
+      "href": "/contact"
     },
     {
       "label": "Donate Now",

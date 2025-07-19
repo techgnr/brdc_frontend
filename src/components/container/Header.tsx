@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import Button from "../ui/Button";
+import LinkButton from "../ui/LinkButton";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -98,6 +99,10 @@ const Header = () => {
                         </ul>
                       )}
                     </>
+                  ) : item.button ? (
+                    <LinkButton path="/#" variant="primary">
+                      {item.label}
+                    </LinkButton>
                   ) : (
                     <Link
                       to={item.href || "#"}
@@ -108,9 +113,6 @@ const Header = () => {
                   )}
                 </li>
               ))}
-              <li>
-                <Button variant="primary">Donate Now</Button>
-              </li>
             </ul>
 
             {/* Mobile Toggle */}

@@ -1,4 +1,3 @@
-import { Mountain } from "lucide-react";
 import data from "../../utils/data.json";
 import { Link } from "react-router";
 
@@ -7,12 +6,13 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              {data.brand.icon && (
-                <Mountain size={24} className="text-green-400" />
-              )}
-              <span className="text-xl font-bold">{data.brand.name}</span>
+          <div className="space-y-2">
+            <div className="flex items-center">
+              <img
+                src={data.logo.icon}
+                alt="Logo"
+                className="w-24 h-24 rounded-full"
+              />
             </div>
             <p className="text-gray-400 leading-relaxed">
               {data.brand.description}

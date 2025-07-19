@@ -5,7 +5,11 @@ const Heading = ({
   title: string;
   className?: string;
 }) => {
-  return <h1 className={`text-3xl font-bold ${className}`}>{title}</h1>;
+  return (
+    <div className={`${className}`}>
+      <h1 className={`text-3xl font-bold inline-block border-half`}>{title}</h1>
+    </div>
+  );
 };
 
 export default Heading;

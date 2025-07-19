@@ -1,7 +1,7 @@
 import data from "../../utils/data.json";
 import PaginatedData from "../PaginatedData";
-import Button from "../ui/Button";
 import Heading from "../ui/Heading";
+import LinkButton from "../ui/LinkButton";
 import QuickCard from "../ui/QuickCard";
 
 const EventsSingle = ({
@@ -23,7 +23,9 @@ const EventsSingle = ({
               ))}
             </div>
             <div className="flex justify-center mt-8">
-              <Button className="px-6 py-3">View More</Button>
+              <LinkButton path="/events" className="px-6 py-3">
+                View More
+              </LinkButton>
             </div>
           </>
         ) : (

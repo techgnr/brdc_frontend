@@ -45,10 +45,10 @@ function PaginatedData<T>({
   };
 
   return (
-    <div>
+    <>
       {children(currentItems)}
 
-      <div className="flex justify-center mt-6 space-x-2">
+      <div className="flex w-full cols-3 justify-center mt-6 space-x-2">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
@@ -87,7 +87,7 @@ function PaginatedData<T>({
           <ChevronRight size={16} />
         </button>
       </div>
-    </div>
+    </>
   );
 }
 

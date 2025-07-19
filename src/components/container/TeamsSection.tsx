@@ -1,16 +1,15 @@
+import LinkButton from "../ui/LinkButton";
+import SectionHeading from "../ui/SectionHeading";
+
 const TeamsSection = () => {
   return (
     <section id="team" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Our Team
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Meet the passionate individuals working to create positive change in
-            Nepal
-          </p>
-        </div>
+        <SectionHeading
+          title="Our Team"
+          description="Meet the passionate individuals working to create positive change in
+            Nepal"
+        />
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="text-center bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -54,6 +53,11 @@ const TeamsSection = () => {
               programs in remote mountain communities.
             </p>
           </div>
+        </div>
+        <div className="mt-8 text-center">
+          <LinkButton path="/team" className="px-6 py-3 mt-6 block mx-auto">
+            View More
+          </LinkButton>
         </div>
       </div>
     </section>

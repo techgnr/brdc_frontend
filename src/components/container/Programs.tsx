@@ -1,7 +1,7 @@
 import SectionHeading from "../ui/SectionHeading";
-import Button from "../ui/Button";
 import PaginatedData from "../PaginatedData";
 import BlogCard from "../ui/BlogCard";
+import LinkButton from "../ui/LinkButton";
 
 const data = Array.from({ length: 54 }, (_, i) => `Post #${i + 1}`);
 
@@ -29,7 +29,9 @@ const Programs = ({
               ))}
             </div>
             <div className="flex justify-center mt-8">
-              <Button className="px-6 py-3">View More</Button>
+              <LinkButton path="/blogs" className="px-6 py-3">
+                View More
+              </LinkButton>
             </div>
           </>
         ) : (

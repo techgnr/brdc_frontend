@@ -18,8 +18,8 @@ const HomePage = () => {
         <ThematicArea />
         <Milestones />
         <SectionWrapper background="bg-white">
-          <EventsSingle />
-          <StoriesSingle />
+          <EventsSingle isHome />
+          <StoriesSingle isHome />
         </SectionWrapper>
         <Programs isHome />
         <TeamsSection />

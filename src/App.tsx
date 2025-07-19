@@ -5,6 +5,11 @@ import PageNotFoundLayout from "./layout/PageNotFoundLayout";
 import HomePage from "./pages/HomePage";
 import BlogsPage from "./pages/BlogsPage";
 import EventsPage from "./pages/EventsPage";
+import StoriesPage from "./pages/StoriesPage";
+import TeamPage from "./pages/TeamPage";
+import ContactPage from "./pages/ContactPage";
+import GalleryPage from "./pages/GalleryPage";
+import PublicationDocumentsPage from "./pages/PublicationDocumentsPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +28,31 @@ function App() {
         {
           path: "/events",
           element: <EventsPage />,
+        },
+        {
+          path: "/stories",
+          element: <StoriesPage />,
+        },
+        {
+          path: "/team",
+          element: <TeamPage />,
+        },
+        {
+          path: "/contact",
+          element: <ContactPage />,
+        },
+        {
+          path: "/gallery",
+          element: <GalleryPage />,
+        },
+        {
+          path: "/publication-document",
+          element: <PublicationDocumentsPage />,
+        },
+
+        {
+          path: "*",
+          element: <PageNotFoundLayout />,
         },
       ],
     },

@@ -8,7 +8,7 @@ const SectionWrapper = ({
   children: React.ReactNode;
 }) => {
   return (
-    <section className={`py-20 ${background || "bg-gray-50"}`}>
+    <section className={`${background || "bg-gray-50"}`}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">{children}</div>
       </div>
