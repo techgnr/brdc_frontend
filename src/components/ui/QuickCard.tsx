@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-const QuickCard = ({ item }: any) => {
+const QuickCard = ({ item }: { item: any }) => {
   return (
     <Link
       to={`/stories/${item.id}`}
@@ -17,7 +17,7 @@ const QuickCard = ({ item }: any) => {
           {item.title}
         </h2>
         <p className="text-green-800 text-sm font-medium">
-          {item.uploaded_date}
+          {item.uploaded_date || item.created_at.slice(0, 10)}
         </p>
       </div>
     </Link>

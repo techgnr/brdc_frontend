@@ -1,6 +1,6 @@
 const Loader = () => {
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <span className="loader"></span>
     </div>
   );

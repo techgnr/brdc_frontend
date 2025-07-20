@@ -1,7 +1,10 @@
 import Slider from "react-slick";
-import data from "../../utils/data.json";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
 import { createRef } from "react";
+import useFetchData from "../../hooks/useFetchData";
+import type { CarouselGroup } from "../../types";
+import Loader from "./Loader";
+import LinkButton from "../ui/LinkButton";
 
 const Banner = () => {
   const settings = {
@@ -14,12 +17,31 @@ const Banner = () => {
     infinite: true,
   };
 
+  const { data: banner, isLoading } = useFetchData<CarouselGroup[]>(
+    "/carousels",
+    {}
+  );
+
   const slider = createRef<Slider>();
+
+  if (isLoading || !banner)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader />
+      </div>
+    );
   return (
     <section className="relative overflow-hidden group max-w-[1400px] mx-auto">
       <Slider className="overflow-hidden relative" {...settings} ref={slider}>
-        {data.banner?.map((item, index) => {
-          const { image, title, description, heading } = item;
+        {banner?.map((item, index) => {
+          const {
+            image,
+            title,
+            description,
+            heading,
+            primary_button_label,
+            primary_button_link,
+          } = item.items[0] || {};
           return (
             <div key={index} className="relative h-[600px] w-full">
               <div className="absolute inset-[-100px] z-50 px-10 flex items-center justify-between opacity-0 transition-all duration-300 group-hover:inset-0 group-hover:opacity-100">
@@ -38,7 +60,7 @@ const Banner = () => {
               </div>
               <div className="grid grid-cols-3 items-center">
                 <div className="col-span-2 relative">
-                  <div className="absolute inset-0 bg-black/50 overflow-hidden" />
+                  <div className="absolute inset-0 bg-black/20 overflow-hidden" />
 
                   <img
                     src={image}
@@ -55,6 +77,15 @@ const Banner = () => {
                       {title}
                     </h1>
                     <p className="text-sm md:text-base">{description}</p>
+                    <div className="z-50">
+                      <LinkButton
+                        path={primary_button_link}
+                        variant="outline"
+                        className="mt-5 text-white hover:text-primary"
+                      >
+                        {primary_button_label}
+                      </LinkButton>
+                    </div>
                   </div>
                 </div>
               </div>

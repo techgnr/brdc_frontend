@@ -2,8 +2,10 @@ import SectionHeading from "../ui/SectionHeading";
 import PaginatedData from "../PaginatedData";
 import BlogCard from "../ui/BlogCard";
 import LinkButton from "../ui/LinkButton";
-
-const data = Array.from({ length: 54 }, (_, i) => `Post #${i + 1}`);
+import useFetchData from "../../hooks/useFetchData";
+import type { BlogPost } from "../../types";
+import Loader from "./Loader";
+import EmptyMessage from "./EmptyMessage";
 
 const Programs = ({
   isHome,
@@ -12,20 +14,25 @@ const Programs = ({
   isHome?: boolean;
   itemsPerPage?: number;
 }) => {
+  const { data: blogs, isLoading } = useFetchData<BlogPost[]>("/blogs/", {});
   return (
     <section id="programs" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
-          title="Our Programs"
+          title="Our Blogs"
           description="Three key focus areas that create lasting impact in Nepal's
             communities"
         />
 
-        {isHome ? (
+        {isLoading ? (
+          <Loader />
+        ) : !blogs ? (
+          <EmptyMessage message="No data available" />
+        ) : isHome ? (
           <>
             <div className="grid md:grid-cols-3 gap-8">
-              {data.slice(0, itemsPerPage).map((item) => (
-                <BlogCard key={item} item={item} />
+              {blogs.slice(0, itemsPerPage).map((item) => (
+                <BlogCard key={item.id} blog={item} />
               ))}
             </div>
             <div className="flex justify-center mt-8">
@@ -35,11 +42,11 @@ const Programs = ({
             </div>
           </>
         ) : (
-          <PaginatedData data={data} itemsPerPage={itemsPerPage}>
+          <PaginatedData data={blogs} itemsPerPage={itemsPerPage}>
             {(items) => (
               <div className="grid md:grid-cols-3 gap-6">
                 {items.map((item) => (
-                  <BlogCard key={item} item={item} />
+                  <BlogCard key={item.id} blog={item} />
                 ))}
               </div>
             )}

@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Clock, Building } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 import ContactForm from "../forms/ContactForm";
+import { useEffect } from "react";
 
 const MapEmbed = () => {
   const mapEmbedHTML = `<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=nepal&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>`;
@@ -8,62 +9,61 @@ const MapEmbed = () => {
   return <div dangerouslySetInnerHTML={{ __html: mapEmbedHTML }} />;
 };
 
+const contactInfo = [
+  {
+    icon: Building,
+    title: "Main Office",
+    details: ["ABC Foundation", "Setopul, Kathmandu 44600", "Nepal"],
+  },
+  {
+    icon: Phone,
+    title: "Phone Numbers",
+    details: [
+      "+977-1-234-5678 (Main)",
+      "+977-1-234-5679 (Programs)",
+      "+977-98-1234-5678 (Mobile)",
+    ],
+  },
+  {
+    icon: Mail,
+    title: "Email Addresses",
+    details: ["info@abc.org", "programs@abc.org", "volunteer@abc.org"],
+  },
+  {
+    icon: Clock,
+    title: "Office Hours",
+    details: [
+      "Monday - Friday: 9:00 AM - 6:00 PM",
+      "Saturday: 10:00 AM - 4:00 PM",
+      "Sunday: Closed",
+    ],
+  },
+];
+
+const officeLocations = [
+  {
+    name: "Kathmandu Headquarters",
+    address: "Thamel, Kathmandu 44600",
+    phone: "+977-1-234-5678",
+    email: "kathmandu@abc.org",
+    type: "Main Office",
+  },
+  {
+    name: "Pokhara Regional Office",
+    address: "Lakeside, Pokhara 33700",
+    phone: "+977-61-123-456",
+    email: "pokhara@abc.org",
+    type: "Regional Office",
+  },
+  {
+    name: "Chitwan Field Office",
+    address: "Bharatpur, Chitwan 44200",
+    phone: "+977-56-123-456",
+    email: "chitwan@abc.org",
+    type: "Field Office",
+  },
+];
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Building,
-      title: "Main Office",
-      details: ["ABC Foundation", "Setopul, Kathmandu 44600", "Nepal"],
-    },
-    {
-      icon: Phone,
-      title: "Phone Numbers",
-      details: [
-        "+977-1-234-5678 (Main)",
-        "+977-1-234-5679 (Programs)",
-        "+977-98-1234-5678 (Mobile)",
-      ],
-    },
-    {
-      icon: Mail,
-      title: "Email Addresses",
-      details: ["info@abc.org", "programs@abc.org", "volunteer@abc.org"],
-    },
-    {
-      icon: Clock,
-      title: "Office Hours",
-      details: [
-        "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 10:00 AM - 4:00 PM",
-        "Sunday: Closed",
-      ],
-    },
-  ];
-
-  const officeLocations = [
-    {
-      name: "Kathmandu Headquarters",
-      address: "Thamel, Kathmandu 44600",
-      phone: "+977-1-234-5678",
-      email: "kathmandu@abc.org",
-      type: "Main Office",
-    },
-    {
-      name: "Pokhara Regional Office",
-      address: "Lakeside, Pokhara 33700",
-      phone: "+977-61-123-456",
-      email: "pokhara@abc.org",
-      type: "Regional Office",
-    },
-    {
-      name: "Chitwan Field Office",
-      address: "Bharatpur, Chitwan 44200",
-      phone: "+977-56-123-456",
-      email: "chitwan@abc.org",
-      type: "Field Office",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       {/* Contact Information */}

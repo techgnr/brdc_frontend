@@ -2,9 +2,17 @@ import { useEffect, useState } from "react";
 import Heading from "../ui/Heading";
 import Button from "../ui/Button";
 import { X } from "lucide-react";
+import type { Album } from "../../types";
+import EmptyMessage from "./EmptyMessage";
 
-const ImagesSingle = ({ images }: any) => {
+const ImagesSingle = ({ images }: { images: Album }) => {
   const [open, setOpen] = useState(false);
+  const [activeImage, setActiveImage] = useState(1);
+
+  const handleClick = (index: number) => {
+    setActiveImage(index);
+    setOpen(true);
+  };
 
   useEffect(() => {
     if (open) {
@@ -20,24 +28,28 @@ const ImagesSingle = ({ images }: any) => {
   return (
     <section>
       <div className="max-w-7xl mx-auto py-20 pt-10">
-        <Heading title={images.title} />
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
-          {images.images.map((image: string, index: number) => (
-            <img
-              key={index}
-              src={image}
-              alt=""
-              className="w-full h-full object-cover cursor-pointer"
-              onClick={() => setOpen(true)}
-            />
-          ))}
-        </div>
+        <Heading title={images?.title} />
+        {!images?.images.length ? (
+          <EmptyMessage message="No image available" />
+        ) : (
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
+            {images.images.map((image) => (
+              <img
+                key={image?.id}
+                src={image?.image}
+                alt=""
+                className="w-full h-72 object-cover cursor-pointer hover:scale-105 transition-all duration-200 rounded-md"
+                onClick={() => handleClick(image?.id)}
+              />
+            ))}
+          </div>
+        )}
         {open && (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-pointer">
             <div className="absolute inset-[5%] md:inset-[10%]">
               <div className="w-full h-full rounded-md overflow-hidden">
                 <img
-                  src={images.images[0]}
+                  src={images?.images[activeImage - 1]?.image}
                   alt=""
                   className="w-full h-full object-contain"
                   onClick={() => setOpen(false)}

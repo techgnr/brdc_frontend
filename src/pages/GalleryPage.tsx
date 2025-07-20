@@ -6,12 +6,15 @@ import PageLayout from "../layout/PageLayout";
 import LinkButton from "../components/ui/LinkButton";
 import SectionHeading from "../components/ui/SectionHeading";
 import ImagesSingle from "../components/container/ImagesSingle";
-import data from "../utils/data.json";
+import type { Album } from "../types";
+import useFetchData from "../hooks/useFetchData";
 
 const GalleryPage = () => {
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const location = useLocation();
   const state = location.state as { title: string };
+
+  const { data: albums } = useFetchData<Album>(`/albums/${id}`, {});
 
   return (
     <PageLayout
@@ -19,7 +22,7 @@ const GalleryPage = () => {
       page={`gallery/${slug === "videos" ? "videos" : "images"}`}
     >
       {slug === "images" && id ? (
-        <ImagesSingle images={data.galleryImage.find((i) => i.id === +id)} />
+        <ImagesSingle images={albums as Album} />
       ) : (
         <section className="max-w-7xl mx-auto py-20 pt-10">
           <div className="flex gap-4 mb-8">

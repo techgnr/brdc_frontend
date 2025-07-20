@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import data from "../../utils/data.json";
 import {
   Mail,
@@ -17,11 +17,28 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+  // Toggle mobile menu with ref
+  const dropdownRef = useRef<HTMLUListElement>(null);
+
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handleDropdownToggle = (label: string) => {
     setActiveDropdown(activeDropdown === label ? null : label);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className="border-b-1 border-primary">
@@ -81,12 +98,15 @@ const Header = () => {
                       </button>
                       {item.dropdown && (
                         <ul
-                          className={`absolute z-10 w-48 bg-white border border-gray-200 shadow-md rounded-sm mt-2 ${
-                            activeDropdown === item.label ? "block" : "hidden"
+                          className={`absolute z-10 w-48 bg-white border border-gray-200 shadow-md rounded-sm mt-2 transition-all duration-200 ease-in-out ${
+                            activeDropdown === item.label
+                              ? "opacity-100 visible traslate-y-0"
+                              : "opacity-0 invisible translate-y-1"
                           }`}
+                          ref={dropdownRef}
                         >
                           {item.dropdown.map((sub, j) => (
-                            <li key={j}>
+                            <li key={j} onClick={() => setActiveDropdown(null)}>
                               <Link
                                 to={sub.href}
                                 className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
@@ -99,13 +119,18 @@ const Header = () => {
                       )}
                     </>
                   ) : item.button ? (
-                    <LinkButton path="/#" variant="primary">
+                    <LinkButton
+                      path="/#"
+                      variant="primary"
+                      onClick={() => setActiveDropdown(null)}
+                    >
                       {item.label}
                     </LinkButton>
                   ) : (
                     <Link
                       to={item.href || "#"}
                       className="text-gray-700 hover:text-primary transition-colors font-semibold"
+                      onClick={() => setActiveDropdown(null)}
                     >
                       {item.label}
                     </Link>

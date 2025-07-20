@@ -5,6 +5,10 @@ import QuickCard from "../ui/QuickCard";
 import LinkButton from "../ui/LinkButton";
 import StoryCard from "../ui/StoryCard";
 import SectionHeading from "../ui/SectionHeading";
+import useFetchData from "../../hooks/useFetchData";
+import type { Stories } from "../../types";
+import Loader from "./Loader";
+import EmptyMessage from "./EmptyMessage";
 
 const StoriesSingle = ({
   isHome,
@@ -13,6 +17,10 @@ const StoriesSingle = ({
   isHome?: boolean;
   itemsPerPage?: number;
 }) => {
+  const { data: stories, isLoading } = useFetchData<Stories[]>(
+    `/sucessstories/`,
+    {}
+  );
   return (
     <div className="py-20">
       {!isHome ? (
@@ -24,21 +32,25 @@ const StoriesSingle = ({
         <Heading title="Stories" className="text-center" />
       )}
       <div className="mt-8 ">
-        {isHome ? (
+        {isLoading ? (
+          <Loader />
+        ) : !stories ? (
+          <EmptyMessage message="No data available" />
+        ) : isHome ? (
           <>
             <div className="space-y-6">
-              {data.events.map((item) => (
+              {stories.map((item) => (
                 <QuickCard item={item} key={item.id} />
               ))}
             </div>
             <div className="flex justify-center mt-8">
               <LinkButton path="/stories" className="px-6 py-3">
-                View More
+                View All
               </LinkButton>
             </div>
           </>
         ) : (
-          <PaginatedData data={data.events} itemsPerPage={itemsPerPage}>
+          <PaginatedData data={stories} itemsPerPage={itemsPerPage}>
             {(items) => (
               <div className="grid md:grid-cols-3 gap-6">
                 {items.map((item) => (
