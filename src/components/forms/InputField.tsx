@@ -22,7 +22,7 @@ const InputField = ({
           value={value}
           onChange={handleInputChange}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-primary focus:border-transparent"
         >
           {field.options.map((option: any) => (
             <option key={option.value} value={option.value}>
@@ -37,7 +37,7 @@ const InputField = ({
           onChange={handleInputChange}
           required
           rows={6}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder={field.placeholder}
         ></textarea>
       ) : (
@@ -48,7 +48,7 @@ const InputField = ({
           value={value}
           onChange={handleInputChange}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder={field.placeholder}
         />
       )}

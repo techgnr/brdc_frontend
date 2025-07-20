@@ -17,7 +17,7 @@ const Statistics = () => {
               }`}
               key={item.id}
             >
-              <p className="text-3xl md:text-4xl font-bold text-green-600">
+              <p className="text-3xl md:text-4xl font-bold text-primary">
                 {item.count}
               </p>
               <h6 className="text-green-800 font-medium italic text-sm">

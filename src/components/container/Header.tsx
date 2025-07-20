@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <div className="border-b-1 border-green-600">
+    <div className="border-b-1 border-primary">
       {/* Top Bar */}
       <div className="bg-gray-900 text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
@@ -73,7 +73,7 @@ const Header = () => {
                   {item.dropdown ? (
                     <>
                       <button
-                        className="flex items-center text-gray-700 hover:text-green-600 transition-colors font-semibold"
+                        className="flex items-center text-gray-700 hover:text-primary transition-colors font-semibold"
                         onClick={() => handleDropdownToggle(item.label)}
                       >
                         {item.label}
@@ -89,7 +89,7 @@ const Header = () => {
                             <li key={j}>
                               <Link
                                 to={sub.href}
-                                className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50 hover:text-green-600 transition-colors"
+                                className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
                               >
                                 {sub.label}
                               </Link>
@@ -105,7 +105,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.href || "#"}
-                      className="text-gray-700 hover:text-green-600 transition-colors font-semibold"
+                      className="text-gray-700 hover:text-primary transition-colors font-semibold"
                     >
                       {item.label}
                     </Link>
@@ -129,13 +129,13 @@ const Header = () => {
                 {data.navigation.map((item, i) => (
                   <li key={i}>
                     {item.button ? (
-                      <button className="w-full mt-2 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors">
+                      <button className="w-full mt-2 bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-colors">
                         {item.label}
                       </button>
                     ) : (
                       <Link
                         to={item.href || "#"}
-                        className="block px-3 py-2 text-gray-700 hover:text-green-600"
+                        className="block px-3 py-2 text-gray-700 hover:text-primary"
                       >
                         {item.label}
                       </Link>

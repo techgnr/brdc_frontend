@@ -13,7 +13,7 @@ const PublicationDocumentsPage = () => {
       <section className="max-w-7xl mx-auto py-20">
         <SectionHeading title="Publication and Documents" />
         <table className="w-full">
-          <thead className="bg-green-600">
+          <thead className="bg-primary">
             <tr className="text-white h-14">
               <th className="px-5 text-start">S.N</th>
               <th className="px-5 text-start">Publication and Documents</th>

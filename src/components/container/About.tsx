@@ -17,7 +17,7 @@ const About = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
             <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-              <Target className="text-green-600" size={32} />
+              <Target className="text-primary" size={32} />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Our Vision</h3>
             <p className="text-gray-600 leading-relaxed">

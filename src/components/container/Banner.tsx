@@ -47,7 +47,7 @@ const Banner = () => {
                   />
                 </div>
                 <div className="col-span-1 relative min-h-[400px]">
-                  <div className="absolute inset-0 left-[-100px] p-10 bg-green-600 text-white flex flex-col justify-center">
+                  <div className="absolute inset-0 left-[-100px] p-10 bg-primary text-white flex flex-col justify-center">
                     <h2 className="text-xl md:text-2xl font-semibold mb-2">
                       {heading}
                     </h2>

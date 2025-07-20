@@ -17,9 +17,7 @@ const TeamsSection = () => {
               RS
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">Raj Sharma</h3>
-            <p className="text-green-600 font-medium mb-3">
-              Executive Director
-            </p>
+            <p className="text-primary font-medium mb-3">Executive Director</p>
             <p className="text-gray-600 text-sm leading-relaxed">
               15+ years experience in development work across Nepal. Passionate
               about sustainable community development.
@@ -27,13 +25,13 @@ const TeamsSection = () => {
           </div>
 
           <div className="text-center bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-            <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+            <div className="w-24 h-24 bg-gradient-to-br from-primary to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
               SP
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               Sita Poudel
             </h3>
-            <p className="text-green-600 font-medium mb-3">Program Manager</p>
+            <p className="text-primary font-medium mb-3">Program Manager</p>
             <p className="text-gray-600 text-sm leading-relaxed">
               Expert in education and women's empowerment programs. Leading our
               rural school development initiatives.
@@ -47,7 +45,7 @@ const TeamsSection = () => {
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               Kiran Bhattarai
             </h3>
-            <p className="text-green-600 font-medium mb-3">Field Coordinator</p>
+            <p className="text-primary font-medium mb-3">Field Coordinator</p>
             <p className="text-gray-600 text-sm leading-relaxed">
               On-ground coordinator ensuring effective implementation of
               programs in remote mountain communities.

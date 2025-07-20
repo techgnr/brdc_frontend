@@ -13,7 +13,7 @@ const QuickCard = ({ item }: any) => {
         className="h-full w-auto object-cover group-hover:scale-105 transition-transform duration-300"
       />
       <div className="p-4">
-        <h2 className="text-lg font-bold line-clamp-2 text-gray-600 transition duration-200 group-hover:text-green-600">
+        <h2 className="text-lg font-bold line-clamp-2 text-gray-600 transition duration-200 group-hover:text-primary">
           {item.title}
         </h2>
         <p className="text-green-800 text-sm font-medium">

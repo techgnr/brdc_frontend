@@ -16,20 +16,20 @@ const Milestones = () => {
             {data.milestone.map((item, idx) => (
               <div
                 className={`min-h-[200px] flex flex-col items-center justify-center text-center p-4 border border-gray-200 rounded-md hover:shadow-md transition-shadow duration-300 ${
-                  idx % 2 === 0 ? "bg-green-700" : "bg-transparent"
+                  idx % 2 === 0 ? "bg-primary-dark" : "bg-transparent"
                 }`}
                 key={item.id}
               >
                 <p
                   className={`text-3xl md:text-4xl font-bold ${
-                    idx % 2 === 0 ? "text-white" : "text-green-600"
+                    idx % 2 === 0 ? "text-white" : "text-primary"
                   }`}
                 >
                   {item.count}
                 </p>
                 <h6
                   className={`font-medium italic text-sm ${
-                    idx % 2 === 0 ? "text-white" : "text-green-600"
+                    idx % 2 === 0 ? "text-white" : "text-primary"
                   }`}
                 >
                   {item.label}

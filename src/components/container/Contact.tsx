@@ -124,7 +124,7 @@ const Contact = () => {
                   <h3 className="text-lg font-semibold text-gray-900">
                     {office.name}
                   </h3>
-                  <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-green-100 text-primary px-3 py-1 rounded-full text-sm font-medium">
                     {office.type}
                   </span>
                 </div>

@@ -52,7 +52,7 @@ function PaginatedData<T>({
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className="p-2 border border-green-500 rounded disabled:opacity-50 disabled:border-gray-300 cursor-pointer disabled:cursor-not-allowed"
+          className="p-2 border border-primary rounded disabled:opacity-50 disabled:border-gray-300 cursor-pointer disabled:cursor-not-allowed"
         >
           <ChevronLeft size={16} />
         </button>
@@ -68,7 +68,7 @@ function PaginatedData<T>({
               onClick={() => setCurrentPage(Number(item))}
               className={`px-3 py-1 border rounded ${
                 currentPage === item
-                  ? "bg-green-600 text-white"
+                  ? "bg-primary text-white"
                   : "hover:bg-blue-100"
               }`}
             >
@@ -82,7 +82,7 @@ function PaginatedData<T>({
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
           disabled={currentPage === totalPages}
-          className="p-2 border border-green-500 rounded disabled:opacity-50 disabled:border-gray-300 cursor-pointer disabled:cursor-not-allowed"
+          className="p-2 border border-primary rounded disabled:opacity-50 disabled:border-gray-300 cursor-pointer disabled:cursor-not-allowed"
         >
           <ChevronRight size={16} />
         </button>

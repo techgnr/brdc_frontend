@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary-dark: #15803d;
+  --color-primary: #22c55e;
+  --color-secondary: #ef4444;
+  --color-tertiary: #f59e0b;
+  --color-light: #f3f4f6;
+  --color-primary-light: #bbf7d0;
+  --color-secondary-light: #fee2e2;
+  --color-tertiary-light: #fde68a;
+}
+
 .border-half {
   position: relative;
   display: inline-block;
@@ -11,7 +22,7 @@
     left: 0;
     width: 50%;
     height: 4px;
-    background-color: green;
+    background-color: var(--color-primary);
   }
 }
 
@@ -56,5 +67,40 @@
         animation: ScrollTop 0.5s linear;
       }
     }
+  }
+}
+
+/* loader */
+.loader {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }
