@@ -11,7 +11,7 @@ const ImageGallery = () => {
     <div>
       {isLoading ? (
         <Loader />
-      ) : !albums ? (
+      ) : !albums || albums.length === 0 ? (
         <EmptyMessage message="No album available" />
       ) : (
         <div className="grid md:grid-cols-3 gap-8">

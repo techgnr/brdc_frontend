@@ -4,8 +4,15 @@ import Button from "../ui/Button";
 import { X } from "lucide-react";
 import type { Album } from "../../types";
 import EmptyMessage from "./EmptyMessage";
+import Loader from "./Loader";
 
-const ImagesSingle = ({ images }: { images: Album }) => {
+const ImagesSingle = ({
+  images,
+  loading,
+}: {
+  images: Album;
+  loading: boolean;
+}) => {
   const [open, setOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(1);
 
@@ -29,7 +36,9 @@ const ImagesSingle = ({ images }: { images: Album }) => {
     <section>
       <div className="max-w-7xl mx-auto py-20 pt-10">
         <Heading title={images?.title} />
-        {!images?.images.length ? (
+        {loading ? (
+          <Loader />
+        ) : !images?.images.length ? (
           <EmptyMessage message="No image available" />
         ) : (
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">

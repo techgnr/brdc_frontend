@@ -8,18 +8,15 @@ import type { Document } from "../types";
 import Button from "../components/ui/Button";
 import { downloadFileFromUrl } from "../utils/helper";
 
-const PublicationDocumentsPage = () => {
+const NewsNoticePage = () => {
   const { data: documents, isLoading } = useFetchData<Document[]>(
-    "/publicationanddocuments/",
+    "/newsandnotice/",
     {}
   );
   return (
-    <PageLayout
-      pageTitle="Publication and Documents"
-      page="publication-document"
-    >
+    <PageLayout pageTitle="News and Notice" page="publication-document">
       <section className="max-w-7xl mx-auto py-20">
-        <SectionHeading title="Publication and Documents" />
+        <SectionHeading title="News and Notice" />
         {isLoading ? (
           <Loader />
         ) : !documents || documents.length === 0 ? (
@@ -35,7 +32,7 @@ const PublicationDocumentsPage = () => {
                         {key === "id"
                           ? "S.N"
                           : key === "title"
-                          ? "Publication and Documents"
+                          ? "News and Notice"
                           : key === "created_at"
                           ? "Upload Date"
                           : "Action"}
@@ -90,4 +87,4 @@ const PublicationDocumentsPage = () => {
   );
 };
 
-export default PublicationDocumentsPage;
+export default NewsNoticePage;

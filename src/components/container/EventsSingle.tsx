@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import useFetchData from "../../hooks/useFetchData";
 import type { Events } from "../../types";
 import PaginatedData from "../PaginatedData";
@@ -21,13 +22,20 @@ const EventsSingle = ({
       <div className="mt-8 ">
         {isLoading ? (
           <Loader />
-        ) : !events ? (
+        ) : !events || events.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : isHome ? (
           <>
             <div className="space-y-6">
               {events.map((item) => (
-                <QuickCard item={item} key={item.id} />
+                <Link
+                  to={`/events/${item.id}`}
+                  state={{ id: item.id, name: item.title }}
+                  key={item.id}
+                  className="block"
+                >
+                  <QuickCard item={item} key={item.id} />
+                </Link>
               ))}
             </div>
             <div className="flex justify-center mt-8">
@@ -41,7 +49,14 @@ const EventsSingle = ({
             {(items) => (
               <div className="grid md:grid-cols-3 gap-6">
                 {items.map((item) => (
-                  <QuickCard key={item.id} item={item} />
+                  <Link
+                    to={`/events/${item.id}`}
+                    state={{ id: item.id, name: item.title }}
+                    key={item.id}
+                    className="block"
+                  >
+                    <QuickCard item={item} key={item.id} />
+                  </Link>
                 ))}
               </div>
             )}

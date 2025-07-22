@@ -1,16 +1,13 @@
-import { Link } from "react-router";
-
 const QuickCard = ({ item }: { item: any }) => {
   return (
-    <Link
-      to={`/stories/${item.id}`}
+    <div
       className="h-28 bg-gray-100 flex rounded-md overflow-hidden shadow hover:shadow-md transition-shadow duration-300 group"
       key={item.id}
     >
       <img
         src={item.image}
         alt={item.title}
-        className="h-full w-auto object-cover group-hover:scale-105 transition-transform duration-300"
+        className="h-full w-28 object-cover group-hover:scale-105 transition-transform duration-300"
       />
       <div className="p-4">
         <h2 className="text-lg font-bold line-clamp-2 text-gray-600 transition duration-200 group-hover:text-primary">
@@ -20,7 +17,7 @@ const QuickCard = ({ item }: { item: any }) => {
           {item.uploaded_date || item.created_at.slice(0, 10)}
         </p>
       </div>
-    </Link>
+    </div>
   );
 };
 

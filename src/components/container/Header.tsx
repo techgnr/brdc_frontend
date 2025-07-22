@@ -12,10 +12,14 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import LinkButton from "../ui/LinkButton";
+import useFetchData from "../../hooks/useFetchData";
+import type { AboutSection } from "../../types";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const { data: about } = useFetchData<AboutSection[]>("/aboutsection/", {});
 
   // Toggle mobile menu with ref
   const dropdownRef = useRef<HTMLUListElement>(null);
@@ -24,6 +28,10 @@ const Header = () => {
 
   const handleDropdownToggle = (label: string) => {
     setActiveDropdown(activeDropdown === label ? null : label);
+  };
+
+  const handleClick = () => {
+    setTimeout(() => setActiveDropdown(null), 50);
   };
 
   useEffect(() => {
@@ -85,12 +93,104 @@ const Header = () => {
 
             {/* Desktop Nav */}
             <ul className="hidden md:flex items-center font-semibold space-x-8">
+              <li>
+                <Link
+                  to="/"
+                  className="text-gray-700 hover:text-primary transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="relative header-nav-item group">
+                <button
+                  className={`flex items-center text-gray-700 hover:text-primary transition-colors font-semibold ${
+                    activeDropdown === "who we are" ? "text-primary" : ""
+                  }`}
+                  onClick={() => handleDropdownToggle("who we are")}
+                >
+                  Who We Are
+                  <ChevronDown size={16} className="ml-1" />
+                </button>
+                <ul
+                  className={`absolute z-50 w-max max-w-sm bg-white border border-gray-200 shadow-md rounded-sm mt-2 transition-all duration-200 ease-in-out ${
+                    activeDropdown === "who we are"
+                      ? "opacity-100 visible traslate-y-0"
+                      : "opacity-0 invisible translate-y-1"
+                  }`}
+                  ref={dropdownRef}
+                >
+                  {about &&
+                    about
+                      .filter((item) => item.is_who_we_are)
+                      .map((sub, j) => (
+                        <li key={j}>
+                          <Link
+                            to={`/who-we-are/${sub.id}`}
+                            state={{ id: sub.id, name: sub.name }}
+                            onClick={handleClick}
+                            className="block px-3 py-1.5 z-50 text-gray-700 border-b-2 border-gray-50 hover:bg-gray-50 hover:text-primary transition-colors"
+                          >
+                            {sub.name}
+                          </Link>
+                        </li>
+                      ))}
+
+                  <li>
+                    <Link
+                      to="/team"
+                      onClick={handleClick}
+                      className="block px-3 py-1.5 z-50 text-gray-700 border-b-2 border-gray-50 hover:bg-gray-50 hover:text-primary transition-colors"
+                    >
+                      Our Team
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="relative header-nav-item group">
+                <button
+                  className={`flex items-center text-gray-700 hover:text-primary transition-colors font-semibold ${
+                    activeDropdown === "what we do" ? "text-primary" : ""
+                  }
+                  `}
+                  onClick={() => handleDropdownToggle("what we do")}
+                >
+                  What We Do
+                  <ChevronDown size={16} className="ml-1" />
+                </button>
+                {about && (
+                  <ul
+                    className={`absolute z-50 w-max max-w-sm bg-white border border-gray-200 shadow-md rounded-sm mt-2 transition-all duration-200 ease-in-out ${
+                      activeDropdown === "what we do"
+                        ? "opacity-100 visible traslate-y-0"
+                        : "opacity-0 invisible translate-y-1"
+                    }`}
+                    ref={dropdownRef}
+                  >
+                    {about
+                      .filter((item) => item.is_what_we_do)
+                      .map((sub, j) => (
+                        <li key={j}>
+                          <Link
+                            to={`/what-we-do/${sub.id}`}
+                            state={{ id: sub.id, name: sub.name }}
+                            onClick={handleClick}
+                            className="block px-3 py-1.5 text-gray-700 border-b-2 border-gray-50 hover:bg-gray-50 hover:text-primary transition-colors"
+                          >
+                            {sub.name}
+                          </Link>
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </li>
               {data.navigation.map((item, i) => (
                 <li key={i} className="relative header-nav-item group">
                   {item.dropdown ? (
                     <>
                       <button
-                        className="flex items-center text-gray-700 hover:text-primary transition-colors font-semibold"
+                        className={`flex items-center text-gray-700 hover:text-primary transition-colors font-semibold ${
+                          activeDropdown === item.label ? "text-primary" : ""
+                        }`}
                         onClick={() => handleDropdownToggle(item.label)}
                       >
                         {item.label}
@@ -106,9 +206,10 @@ const Header = () => {
                           ref={dropdownRef}
                         >
                           {item.dropdown.map((sub, j) => (
-                            <li key={j} onClick={() => setActiveDropdown(null)}>
+                            <li key={j}>
                               <Link
                                 to={sub.href}
+                                onClick={handleClick}
                                 className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
                               >
                                 {sub.label}
@@ -122,7 +223,7 @@ const Header = () => {
                     <LinkButton
                       path="/#"
                       variant="primary"
-                      onClick={() => setActiveDropdown(null)}
+                      onClick={handleClick}
                     >
                       {item.label}
                     </LinkButton>
@@ -130,7 +231,7 @@ const Header = () => {
                     <Link
                       to={item.href || "#"}
                       className="text-gray-700 hover:text-primary transition-colors font-semibold"
-                      onClick={() => setActiveDropdown(null)}
+                      onClick={handleClick}
                     >
                       {item.label}
                     </Link>

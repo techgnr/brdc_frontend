@@ -21,7 +21,7 @@ const InputField = ({
           name={field.name}
           value={value}
           onChange={handleInputChange}
-          required
+          required={field.required}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-primary focus:border-transparent"
         >
           {field.options.map((option: any) => (
@@ -35,7 +35,7 @@ const InputField = ({
           name={field.name}
           value={value}
           onChange={handleInputChange}
-          required
+          required={field.required}
           rows={6}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder={field.placeholder}
@@ -47,7 +47,7 @@ const InputField = ({
           name={field.name}
           value={value}
           onChange={handleInputChange}
-          required
+          required={field.required}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-0 focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder={field.placeholder}
         />

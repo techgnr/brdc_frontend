@@ -22,7 +22,7 @@ const HomePage = () => {
           <StoriesSingle isHome />
         </SectionWrapper>
         <Programs isHome />
-        <TeamsSection />
+        <TeamsSection endpoint="is_bod_team=true" title="BOD Team" />
         <HorizontalSlider />
       </main>
     </div>

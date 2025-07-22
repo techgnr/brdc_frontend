@@ -1,38 +1,40 @@
 import SectionHeading from "../ui/SectionHeading";
 import PaginatedData from "../PaginatedData";
-import BlogCard from "../ui/BlogCard";
 import LinkButton from "../ui/LinkButton";
 import useFetchData from "../../hooks/useFetchData";
-import type { BlogPost } from "../../types";
+import type { Carrier } from "../../types";
 import Loader from "./Loader";
 import EmptyMessage from "./EmptyMessage";
+import CarrierCard from "../ui/CarrierCard";
 
-const Programs = ({
+const Carriers = ({
   isHome,
   itemsPerPage = 6,
 }: {
   isHome?: boolean;
   itemsPerPage?: number;
 }) => {
-  const { data: blogs, isLoading } = useFetchData<BlogPost[]>("/blogs/", {});
+  const { data: carriers, isLoading } = useFetchData<Carrier[]>(
+    "/carrier/",
+    {}
+  );
   return (
-    <section id="programs" className="py-20 bg-gray-50">
+    <section id="Carrier" className="py-20">
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
-          title="Our Blogs"
-          description="Three key focus areas that create lasting impact in Nepal's
-            communities"
+          title="Our Carrier"
+          description="Three key focus areas that create lasting impact in Nepal's communities"
         />
 
         {isLoading ? (
           <Loader />
-        ) : !blogs || blogs.length === 0 ? (
+        ) : !carriers || carriers.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : isHome ? (
           <>
             <div className="grid md:grid-cols-3 gap-8">
-              {blogs.slice(0, itemsPerPage).map((item) => (
-                <BlogCard key={item.id} blog={item} />
+              {carriers.slice(0, itemsPerPage).map((item) => (
+                <CarrierCard key={item.id} carrier={item} />
               ))}
             </div>
             <div className="flex justify-center mt-8">
@@ -42,11 +44,11 @@ const Programs = ({
             </div>
           </>
         ) : (
-          <PaginatedData data={blogs} itemsPerPage={itemsPerPage}>
+          <PaginatedData data={carriers} itemsPerPage={itemsPerPage}>
             {(items) => (
               <div className="grid md:grid-cols-3 gap-6">
                 {items.map((item) => (
-                  <BlogCard key={item.id} blog={item} />
+                  <CarrierCard key={item.id} carrier={item} />
                 ))}
               </div>
             )}
@@ -57,4 +59,4 @@ const Programs = ({
   );
 };
 
-export default Programs;
+export default Carriers;

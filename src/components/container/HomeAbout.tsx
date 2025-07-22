@@ -1,9 +1,9 @@
 import SectionHeading from "../ui/SectionHeading";
-import Button from "../ui/Button";
 import useFetchData from "../../hooks/useFetchData";
 import type { AboutSection } from "../../types";
 import EmptyMessage from "./EmptyMessage";
 import Loader from "./Loader";
+import { Link } from "react-router";
 
 const HomeAbout = () => {
   const { data: about, isLoading } = useFetchData<AboutSection[]>(
@@ -22,13 +22,18 @@ const HomeAbout = () => {
         />
         {isLoading ? (
           <Loader />
-        ) : !about ? (
+        ) : !about || about.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : (
           <>
             <div className="grid md:grid-cols-3 gap-8">
               {about.slice(0, 6).map((item) => (
-                <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
+                <Link
+                  to={`/who-we-are/${item.id}`}
+                  state={{ id: item.id, name: item.name }}
+                  className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow group"
+                  key={item.id}
+                >
                   <div className="flex items-center justify-center mb-6 overflow-hidden">
                     <img
                       src={item.image}
@@ -42,12 +47,12 @@ const HomeAbout = () => {
                   <p className="text-gray-600 text-center leading-relaxed line-clamp-4">
                     {item.about_categories?.intro}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
-            <div className="text-center">
+            {/* <div className="text-center">
               <Button className="mt-8 px-6">Learn More</Button>
-            </div>
+            </div> */}
           </>
         )}
       </div>

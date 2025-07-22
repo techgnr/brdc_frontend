@@ -1,8 +1,8 @@
 import SectionHeading from "../ui/SectionHeading";
 import useFetchData from "../../hooks/useFetchData";
 import type { Milestone } from "../../types";
-import { Loader } from "lucide-react";
 import EmptyMessage from "./EmptyMessage";
+import Loader from "./Loader";
 
 const Statistics = () => {
   const { data: statics, isLoading } = useFetchData<Milestone[]>(
@@ -18,7 +18,7 @@ const Statistics = () => {
         />
         {isLoading ? (
           <Loader />
-        ) : !statics ? (
+        ) : !statics || statics.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : (
           <div className="flex flex-wrap gap-y-6 gap-x-6">

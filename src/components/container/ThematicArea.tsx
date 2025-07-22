@@ -29,7 +29,8 @@ const ThematicArea = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {about.map((item) => (
                 <Link
-                  to={`/thematic/${item.id}`}
+                  to={`/what-we-do/${item.id}`}
+                  state={{ id: item.id, name: item.name }}
                   key={item.id}
                   className="bg-white rounded-md overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow relative group"
                 >
@@ -52,9 +53,9 @@ const ThematicArea = () => {
                 </Link>
               ))}
             </div>
-            <div className="text-center">
+            {/* <div className="text-center">
               <Button className="mt-8 px-6">Learn More</Button>
-            </div>
+            </div> */}
           </>
         )}
       </div>

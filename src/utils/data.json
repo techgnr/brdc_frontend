@@ -14,34 +14,13 @@
   ],
   "navigation": [
     {
-      "label": "Home",
-      "href": "/"
-    },
-    {
-      "label": "Who We Are",
-      "dropdown": [
-        { "label": "Vision and Mission", "href": "/mission" },
-        { "label": "Core Values", "href": "/values" },
-        { "label": "Our Reach", "href": "/reach" },
-        { "label": "Out Team", "href": "/team" }
-      ]
-    },
-    {
-      "label": "What We Do",
-      "dropdown": [
-        { "label": "Education", "href": "/education" },
-        { "label": "Healthcare", "href": "/healthcare" },
-        { "label": "Environment", "href": "/environment" }
-      ]
-    },
-    {
       "label": "Resources and Media",
       "dropdown": [
         { "label": "Events", "href": "/events" },
-        { "label": "News", "href": "/news" },
+        { "label": "News and Notice", "href": "/notice" },
         { "label": "Gallery", "href": "/gallery" },
         { "label": "Success Stories", "href": "/stories" },
-        { "label": "Blog", "href": "/blog" },
+        { "label": "Blogs", "href": "/blogs" },
         {
           "label": "Publications and Documents",
           "href": "/publication-document"
@@ -80,19 +59,30 @@
     {
       "title": "Quick Links",
       "items": [
-        { "label": "About Us", "href": "#about" },
-        { "label": "Programs", "href": "#programs" },
-        { "label": "Team", "href": "#team" },
-        { "label": "Contact", "href": "#contact" }
+        { "label": "About Us", "href": "/about" },
+        { "label": "Programs", "href": "/programs" },
+        { "label": "Team", "href": "/team" },
+        { "label": "Contact", "href": "/contact" }
       ]
     },
     {
       "title": "Programs",
-      "items": ["Education", "Healthcare", "Environment", "Women's Empowerment"]
+      "items": [
+        { "label": "Education", "href": "/education" },
+        { "label": "Healthcare", "href": "/healthcare" },
+        { "label": "Environment", "href": "/environment" },
+        { "label": "Women's Empowerment", "href": "/women" }
+      ]
     },
     {
       "title": "Get Involved",
-      "items": ["Volunteer", "Donate", "Partner", "Newsletter"]
+      "items": [
+        { "label": "Volunteer", "href": "/volunteer" },
+        { "label": "Donate", "href": "/donate" },
+        { "label": "Partner", "href": "/partner" },
+        { "label": "Newsletter", "href": "/newsletter" },
+        { "label": "Carriers", "href": "/carriers" }
+      ]
     }
   ],
   "footerNote": "© 2024 Project. All rights reserved. Making a difference across Nepal's beautiful landscapes.",

@@ -5,23 +5,27 @@ import SectionHeading from "../ui/SectionHeading";
 import EmptyMessage from "./EmptyMessage";
 import Loader from "./Loader";
 
-const TeamsSection = () => {
+const TeamsSection = ({
+  title = "Our Team",
+  description = "Meet the passionate individuals working to create positive change in Nepal",
+  endpoint = "is_bod_team=true",
+}: {
+  title: string;
+  description?: string;
+  endpoint?: string;
+}) => {
   const { data: teamMember, isLoading } = useFetchData<TeamMember[]>(
-    "/teams/",
+    `/teams/?${endpoint}`,
     {}
   );
   return (
-    <section id="team" className="py-20 bg-white">
+    <section id="team" className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <SectionHeading
-          title="Our Team"
-          description="Meet the passionate individuals working to create positive change in
-            Nepal"
-        />
+        <SectionHeading title={title} description={description} />
 
         {isLoading ? (
           <Loader />
-        ) : !teamMember ? (
+        ) : !teamMember || teamMember.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : (
           <>

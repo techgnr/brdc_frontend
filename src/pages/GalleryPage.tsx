@@ -14,7 +14,7 @@ const GalleryPage = () => {
   const location = useLocation();
   const state = location.state as { title: string };
 
-  const { data: albums } = useFetchData<Album>(`/albums/${id}`, {});
+  const { data: albums, isLoading } = useFetchData<Album>(`/albums/${id}`, {});
 
   return (
     <PageLayout
@@ -22,7 +22,7 @@ const GalleryPage = () => {
       page={`gallery/${slug === "videos" ? "videos" : "images"}`}
     >
       {slug === "images" && id ? (
-        <ImagesSingle images={albums as Album} />
+        <ImagesSingle images={albums as Album} loading={isLoading} />
       ) : (
         <section className="max-w-7xl mx-auto py-20 pt-10">
           <div className="flex gap-4 mb-8">

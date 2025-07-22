@@ -1,4 +1,3 @@
-import data from "../../utils/data.json";
 import PaginatedData from "../PaginatedData";
 import Heading from "../ui/Heading";
 import QuickCard from "../ui/QuickCard";
@@ -9,6 +8,7 @@ import useFetchData from "../../hooks/useFetchData";
 import type { Stories } from "../../types";
 import Loader from "./Loader";
 import EmptyMessage from "./EmptyMessage";
+import { Link } from "react-router";
 
 const StoriesSingle = ({
   isHome,
@@ -34,13 +34,20 @@ const StoriesSingle = ({
       <div className="mt-8 ">
         {isLoading ? (
           <Loader />
-        ) : !stories ? (
+        ) : !stories || stories.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : isHome ? (
           <>
             <div className="space-y-6">
               {stories.map((item) => (
-                <QuickCard item={item} key={item.id} />
+                <Link
+                  to={`/stories/${item.id}`}
+                  state={{ id: item.id, name: item.title }}
+                  key={item.id}
+                  className="block"
+                >
+                  <QuickCard item={item} key={item.id} />
+                </Link>
               ))}
             </div>
             <div className="flex justify-center mt-8">

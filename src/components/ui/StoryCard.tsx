@@ -1,6 +1,13 @@
+import { Link } from "react-router";
+
 const StoryCard = ({ story, index }: any) => {
   return (
-    <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <Link
+      to={`/stories/${story.id}`}
+      state={{ id: story.id, name: story.title }}
+      key={index}
+      className="bg-white rounded-lg shadow-lg overflow-hidden"
+    >
       <img
         src={story.image}
         alt={story.title}
@@ -19,7 +26,7 @@ const StoryCard = ({ story, index }: any) => {
         </div> */}
         <p className="text-gray-700 italic text-sm">"{story.story}"</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -2,13 +2,22 @@ import { Send } from "lucide-react";
 import { useState } from "react";
 import SectionHeading from "../ui/SectionHeading";
 import InputField from "./InputField";
+import usePostData from "../../hooks/usePostData";
 
 const formFields = [
   {
     label: "Full Name *",
-    name: "name",
+    name: "full_name",
     type: "text",
     placeholder: "Your full name",
+    required: true,
+    width: "col-span-1",
+  },
+  {
+    label: "Phone Number *",
+    name: "phone_no",
+    type: "number",
+    placeholder: "Your phone number",
     required: true,
     width: "col-span-1",
   },
@@ -18,27 +27,27 @@ const formFields = [
     type: "email",
     placeholder: "your.email@example.com",
     required: true,
-    width: "col-span-1",
-  },
-  {
-    label: "Subject *",
-    name: "subject",
-    type: "select",
-    options: [
-      { label: "Select a subject", value: "" },
-      { label: "General Inquiry", value: "general" },
-      { label: "Volunteer Opportunities", value: "volunteer" },
-      { label: "Donation/Partnership", value: "donation" },
-      { label: "Program Information", value: "programs" },
-      { label: "Media Inquiry", value: "media" },
-      { label: "Other", value: "other" },
-    ],
-    required: true,
     width: "col-span-2",
   },
+  // {
+  //   label: "Subject *",
+  //   name: "subject",
+  //   type: "select",
+  //   options: [
+  //     { label: "Select a subject", value: "" },
+  //     { label: "General Inquiry", value: "general" },
+  //     { label: "Volunteer Opportunities", value: "volunteer" },
+  //     { label: "Donation/Partnership", value: "donation" },
+  //     { label: "Program Information", value: "programs" },
+  //     { label: "Media Inquiry", value: "media" },
+  //     { label: "Other", value: "other" },
+  //   ],
+  //   required: true,
+  //   width: "col-span-2",
+  // },
   {
     label: "Message *",
-    name: "message",
+    name: "description",
     type: "textarea",
     placeholder:
       "Tell us how we can help you or how you'd like to get involved...",
@@ -48,13 +57,24 @@ const formFields = [
   },
 ];
 
+type Contactus = {
+  full_name: string;
+  email: string;
+  phone_no: string;
+  description: string;
+};
+
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
+  const [formData, setFormData] = useState<Contactus>({
+    full_name: "",
     email: "",
-    subject: "",
-    message: "",
+    phone_no: "",
+    description: "",
   });
+
+  const [errorMessage, setErrorMessage] = useState<any>({});
+
+  const { mutate, status } = usePostData("/contactus/");
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -70,12 +90,23 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    alert("Thank you for your message! We will get back to you soon.");
+    mutate(formData, {
+      onSuccess: () => {
+        alert("Thank you for your message! We will get back to you soon.");
+        setFormData({
+          full_name: "",
+          email: "",
+          phone_no: "",
+          description: "",
+        });
+      },
+      onError: (err: any) => {
+        setErrorMessage(err.response.data as any);
+        console.error("Submission error:", err);
+      },
+    });
   };
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,6 +126,11 @@ const ContactForm = () => {
                     value={formData[field.name as keyof typeof formData]}
                     handleInputChange={handleInputChange}
                   />
+                  {errorMessage[field.name] && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errorMessage[field.name]}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -102,12 +138,18 @@ const ContactForm = () => {
             <div className="text-center">
               <button
                 type="submit"
+                disabled={status === "pending"}
                 className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
               >
                 <Send className="h-5 w-5 mr-2" />
-                Send Message
+                {status === "pending" ? "Sending..." : "Send Message"}
               </button>
             </div>
+            {status === "success" && (
+              <p className="text-green-500 text-sm mt-1 text-center">
+                Thank you for your message! We will get back to you soon.
+              </p>
+            )}
           </form>
         </div>
       </div>

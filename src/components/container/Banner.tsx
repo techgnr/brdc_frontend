@@ -5,6 +5,7 @@ import useFetchData from "../../hooks/useFetchData";
 import type { CarouselGroup } from "../../types";
 import Loader from "./Loader";
 import LinkButton from "../ui/LinkButton";
+import EmptyMessage from "./EmptyMessage";
 
 const Banner = () => {
   const settings = {
@@ -24,12 +25,14 @@ const Banner = () => {
 
   const slider = createRef<Slider>();
 
-  if (isLoading || !banner)
+  if (isLoading)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loader />
       </div>
     );
+  if (!banner || banner.length === 0)
+    return <EmptyMessage message="No data available" />;
   return (
     <section className="relative overflow-hidden group max-w-[1400px] mx-auto">
       <Slider className="overflow-hidden relative" {...settings} ref={slider}>

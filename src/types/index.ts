@@ -24,8 +24,10 @@ export type AboutCategory = {
 export type AboutSection = {
   id: number;
   name: string;
+  title: string;
   image: string;
   description: string;
+  content: string;
   is_who_we_are: boolean;
   is_what_we_do: boolean;
   about_categories: AboutCategory;
@@ -46,6 +48,7 @@ export type TeamMember = {
   image: string;
   is_bod_team: boolean;
   is_administrative: boolean;
+  is_adivisor: boolean;
 };
 
 export type BlogPost = {
@@ -107,5 +110,13 @@ export type Document = {
   id: number;
   title: string;
   attchments: string;
+  created_at: string;
+};
+
+export type Carrier = {
+  id: number;
+  name: string;
+  description: string;
+  upload_document: string;
   created_at: string;
 };
