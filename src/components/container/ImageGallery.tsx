@@ -4,6 +4,7 @@ import useFetchData from "../../hooks/useFetchData";
 import type { Album } from "../../types";
 import EmptyMessage from "./EmptyMessage";
 import Loader from "./Loader";
+import Button from "../ui/Button";
 
 const ImageGallery = () => {
   const { data: albums, isLoading } = useFetchData<Album[]>("/albums/", {});
@@ -34,14 +35,9 @@ const ImageGallery = () => {
                   {item.title}
                 </h3>
                 <div className="text-center">
-                  <LinkButton
-                    variant="secondary"
-                    path={`/gallery/images/${item.id}`}
-                    className="w-24"
-                    state={{ title: item.title }}
-                  >
+                  <Button variant="secondary" className="w-24">
                     View
-                  </LinkButton>
+                  </Button>
                 </div>
               </div>
             </Link>

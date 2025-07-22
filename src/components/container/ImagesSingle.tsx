@@ -34,20 +34,20 @@ const ImagesSingle = ({
   }, [open]);
   return (
     <section>
-      <div className="max-w-7xl mx-auto py-10 sm:py-16 md:py-20 pt-10">
+      <div className="max-w-7xl mx-auto py-10 sm:py-16 md:py-20 pt-10 px-4">
         <Heading title={images?.title} />
         {loading ? (
           <Loader />
         ) : !images?.images.length ? (
           <EmptyMessage message="No image available" />
         ) : (
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 md:grid-cols-3 mt-8">
             {images.images.map((image) => (
               <img
                 key={image?.id}
                 src={image?.image}
                 alt=""
-                className="w-full h-72 object-cover cursor-pointer hover:scale-105 transition-all duration-200 rounded-md"
+                className="w-full h-48 md:h-72 object-cover cursor-pointer hover:scale-105 transition-all duration-200 rounded-md"
                 onClick={() => handleClick(image?.id)}
               />
             ))}

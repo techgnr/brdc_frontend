@@ -14,7 +14,10 @@ const GalleryPage = () => {
   const location = useLocation();
   const state = location.state as { title: string };
 
-  const { data: albums, isLoading } = useFetchData<Album>(`/albums/${id}`, {});
+  const { data: albums, isLoading } = useFetchData<Album>(
+    `/albums/${id || ""}`,
+    {}
+  );
 
   return (
     <PageLayout
