@@ -18,7 +18,7 @@ const PublicationDocumentsPage = () => {
       pageTitle="Publication and Documents"
       page="publication-document"
     >
-      <section className="max-w-7xl mx-auto py-20">
+      <section className="max-w-7xl mx-auto py-10 sm:py-16 md:py-20">
         <SectionHeading title="Publication and Documents" />
         {isLoading ? (
           <Loader />

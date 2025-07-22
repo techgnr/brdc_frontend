@@ -22,7 +22,7 @@ const StoriesSingle = ({
     {}
   );
   return (
-    <div className="py-20">
+    <div className="py-10 sm:py-16 md:py-20">
       {!isHome ? (
         <SectionHeading
           title="Success Stories"

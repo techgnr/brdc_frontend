@@ -219,15 +219,17 @@ const Header = () => {
                         </ul>
                       )}
                     </>
-                  ) : item.button ? (
-                    <LinkButton
-                      path="/#"
-                      variant="primary"
-                      onClick={handleClick}
-                    >
-                      {item.label}
-                    </LinkButton>
                   ) : (
+                    // :
+                    //  item.button ? (
+                    //   <LinkButton
+                    //     path="/#"
+                    //     variant="primary"
+                    //     onClick={handleClick}
+                    //   >
+                    //     {item.label}
+                    //   </LinkButton>
+                    // )
                     <Link
                       to={item.href || "#"}
                       className="text-gray-700 hover:text-primary transition-colors font-semibold"

@@ -4,7 +4,7 @@ import PageLayout from "../layout/PageLayout";
 const TeamPage = () => {
   return (
     <PageLayout pageTitle="Meet Our Team" page="team">
-      <section className="max-w-7xl mx-auto py-10">
+      <section className="max-w-7xl mx-auto">
         <>
           <TeamsSection title="BOD Team" endpoint="is_bod_team=true" />
           <TeamsSection

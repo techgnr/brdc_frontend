@@ -61,7 +61,7 @@ const Banner = () => {
                   <ChevronsRight color="white" />
                 </button>
               </div>
-              <div className="grid grid-cols-3 items-center">
+              <div className="block md:grid grid-cols-3 items-center">
                 <div className="col-span-2 relative">
                   <div className="absolute inset-0 bg-black/20 overflow-hidden" />
 
@@ -71,15 +71,17 @@ const Banner = () => {
                     className="h-[600px] w-full object-cover"
                   />
                 </div>
-                <div className="col-span-1 relative min-h-[400px]">
-                  <div className="absolute inset-0 left-[-100px] p-10 bg-primary text-white flex flex-col justify-center">
-                    <h2 className="text-xl md:text-2xl font-semibold mb-2">
+                <div className="col-span-1 absolute left-0 w-full bottom-0 min-h-[300px] md:relative  md:min-h-[400px]">
+                  <div className="absolute inset-0 left-[0px] md:left-[-100px] p-10 bg-primary/20 md:bg-primary text-white flex flex-col justify-center">
+                    <h2 className="text-xl md:text-xl font-semibold mb-2">
                       {heading}
                     </h2>
-                    <h1 className="text-3xl md:text-5xl font-bold mb-5">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-5">
                       {title}
                     </h1>
-                    <p className="text-sm md:text-base">{description}</p>
+                    <p className="text-md md:text-base leading-relaxed line-clamp-4 mb-3">
+                      {description}
+                    </p>
                     <div className="z-50">
                       <LinkButton
                         path={primary_button_link}

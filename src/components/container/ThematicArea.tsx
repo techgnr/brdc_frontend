@@ -12,7 +12,7 @@ const ThematicArea = () => {
     {}
   );
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-10 sm:py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
           title="Thematic Areas"
@@ -26,7 +26,7 @@ const ThematicArea = () => {
           <EmptyMessage message="No data available" />
         ) : (
           <>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {about.map((item) => (
                 <Link
                   to={`/what-we-do/${item.id}`}

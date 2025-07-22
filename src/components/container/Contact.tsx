@@ -3,9 +3,14 @@ import SectionHeading from "../ui/SectionHeading";
 import ContactForm from "../forms/ContactForm";
 
 const MapEmbed = () => {
-  const mapEmbedHTML = `<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=nepal&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>`;
+  const mapEmbedHTML = `<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=nepal&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>`;
 
-  return <div dangerouslySetInnerHTML={{ __html: mapEmbedHTML }} />;
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: mapEmbedHTML }}
+      className="w-full h-96 md:h-[450px]"
+    />
+  );
 };
 
 const contactInfo = [
@@ -102,7 +107,7 @@ const Contact = () => {
       <ContactForm />
 
       {/* Office Locations */}
-      <section className="py-16">
+      <section className="py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -113,7 +118,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {officeLocations.map((office, index) => (
               <div
                 key={index}

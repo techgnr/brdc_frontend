@@ -11,7 +11,7 @@ const HomeAbout = () => {
     {}
   );
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-10 sm:py-16 md:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
           title="Who We Are"
@@ -26,7 +26,7 @@ const HomeAbout = () => {
           <EmptyMessage message="No data available" />
         ) : (
           <>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {about.slice(0, 6).map((item) => (
                 <Link
                   to={`/who-we-are/${item.id}`}

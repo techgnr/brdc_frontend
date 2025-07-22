@@ -1,23 +1,16 @@
-import { useLocation } from "react-router";
-import PageLayout from "./PageLayout";
 import useFetchData from "../hooks/useFetchData";
+import DOMPurify from "dompurify";
 import type { AboutSection } from "../types";
 import Loader from "../components/container/Loader";
 import EmptyMessage from "../components/container/EmptyMessage";
 import SectionHeading from "../components/ui/SectionHeading";
-import DOMPurify from "dompurify";
+import PageLayout from "../layout/PageLayout";
 
-const PageDetailsLayout = ({ url }: { url: string }) => {
-  const { state } = useLocation();
-  const base = window.location.pathname.split("/")[1];
-
-  const { data, isLoading } = useFetchData<AboutSection>(
-    `/${url}/${state?.id}`,
-    {}
-  );
+const TermsCondition = () => {
+  const { data, isLoading } = useFetchData<AboutSection>(`/terms/`, {});
 
   return (
-    <PageLayout pageTitle={state?.name} page={`${base}`}>
+    <PageLayout pageTitle={"Terms & Conditions"} page={"terms"}>
       {isLoading ? (
         <div className="h-72 flex items-center justify-center">
           <Loader />
@@ -27,8 +20,8 @@ const PageDetailsLayout = ({ url }: { url: string }) => {
       ) : (
         <section className="max-w-7xl mx-auto px-4 py-10 sm:py-16 md:py-20 pt-16">
           <SectionHeading
-            title={data?.name || data?.title}
-            description={data?.about_categories?.intro}
+            title={"Terms & Conditions"}
+            description={"Our Terms & Conditions"}
           />
           <div
             className="flex flex-col gap-4"
@@ -46,4 +39,4 @@ const PageDetailsLayout = ({ url }: { url: string }) => {
   );
 };
 
-export default PageDetailsLayout;
+export default TermsCondition;

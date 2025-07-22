@@ -10,7 +10,7 @@ const Statistics = () => {
     {}
   );
   return (
-    <section className="pb-16 bg-gray-50">
+    <section className="pb-10 sm:pb-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
           title="Statistics"
@@ -21,10 +21,10 @@ const Statistics = () => {
         ) : !statics || statics.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : (
-          <div className="flex flex-wrap gap-y-6 gap-x-6">
+          <div className="flex flex-wrap gap-y-4 gap-x-4 md:gap-x-6 md:gap-y-6">
             {statics.map((item) => (
               <div
-                className={`min-h-[200px] flex-1/5 flex flex-col items-center justify-center text-center p-4 md:px-6 border border-gray-200 rounded-md hover:shadow-md transition-shadow duration-300 bg-white`}
+                className={`min-h-[200px] flex-1/3 md:flex-1/5 flex flex-col items-center justify-center text-center p-4 md:px-6 border border-gray-200 rounded-md hover:shadow-md transition-shadow duration-300 bg-white`}
                 key={item.id}
               >
                 <p className="text-3xl md:text-4xl font-bold text-primary">

@@ -19,7 +19,7 @@ const Carriers = ({
     {}
   );
   return (
-    <section id="Carrier" className="py-20">
+    <section id="Carrier" className="py-10 sm:py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
           title="Our Carrier"

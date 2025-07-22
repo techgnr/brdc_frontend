@@ -17,7 +17,7 @@ const EventsSingle = ({
 }) => {
   const { data: events, isLoading } = useFetchData<Events[]>(`/events/`, {});
   return (
-    <div className="py-20">
+    <div className="py-10 sm:py-16 md:py-20">
       <Heading title="Events" className="text-center" />
       <div className="mt-8 ">
         {isLoading ? (

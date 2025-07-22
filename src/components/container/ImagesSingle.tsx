@@ -34,7 +34,7 @@ const ImagesSingle = ({
   }, [open]);
   return (
     <section>
-      <div className="max-w-7xl mx-auto py-20 pt-10">
+      <div className="max-w-7xl mx-auto py-10 sm:py-16 md:py-20 pt-10">
         <Heading title={images?.title} />
         {loading ? (
           <Loader />

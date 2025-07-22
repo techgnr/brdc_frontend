@@ -5,13 +5,10 @@ import type { Network } from "../../types";
 import Loader from "./Loader";
 
 const HorizontalSlider = () => {
-  const { data: network, isLoading } = useFetchData<Network[]>(
-    "/aboutsection/?is_what_we_do=true",
-    {}
-  );
+  const { data: network, isLoading } = useFetchData<Network[]>("/network/", {});
   if (!network) return null;
   return (
-    <section id="team" className="py-20 bg-gray-50">
+    <section id="team" className="py-10 sm:py-16 md:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -32,9 +29,9 @@ const HorizontalSlider = () => {
               pauseOnHover
               gradient={false}
               autoFill
-              className="flex gap-6"
+              className="flex gap-4"
             >
-              <div className="flex gap-6 items-end">
+              <div className="flex gap-4 items-end">
                 {network.map((item, index) => (
                   <Link
                     key={index}

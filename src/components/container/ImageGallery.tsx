@@ -8,13 +8,13 @@ import Loader from "./Loader";
 const ImageGallery = () => {
   const { data: albums, isLoading } = useFetchData<Album[]>("/albums/", {});
   return (
-    <div>
+    <div className="px-4">
       {isLoading ? (
         <Loader />
       ) : !albums || albums.length === 0 ? (
         <EmptyMessage message="No album available" />
       ) : (
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8">
           {albums.map((item) => (
             <Link
               to={`/gallery/images/${item.id}`}

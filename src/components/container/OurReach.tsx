@@ -10,7 +10,7 @@ const OurReach = () => {
     {}
   );
   return (
-    <div>
+    <div className="px-4">
       <SectionHeading
         title="Our Reach"
         description="We work directly with local communities, ensuring our programs are culturally sensitive."
@@ -20,7 +20,7 @@ const OurReach = () => {
       ) : !reachs || reachs.length === 0 ? (
         <EmptyMessage message="No data available" />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {reachs.map((item, idx) => (
             <div
               className={`min-h-[200px] flex flex-col items-center justify-center text-center p-4 md:px-5 border border-gray-200 rounded-md hover:shadow-md transition-shadow duration-300 ${

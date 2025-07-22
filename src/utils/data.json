@@ -30,10 +30,6 @@
     {
       "label": "Contact",
       "href": "/contact"
-    },
-    {
-      "label": "Donate Now",
-      "button": true
     }
   ],
   "mobileNavigation": {
@@ -59,29 +55,27 @@
     {
       "title": "Quick Links",
       "items": [
-        { "label": "About Us", "href": "/about" },
-        { "label": "Programs", "href": "/programs" },
+        { "label": "Blogs", "href": "/blogs" },
         { "label": "Team", "href": "/team" },
-        { "label": "Contact", "href": "/contact" }
-      ]
-    },
-    {
-      "title": "Programs",
-      "items": [
-        { "label": "Education", "href": "/education" },
-        { "label": "Healthcare", "href": "/healthcare" },
-        { "label": "Environment", "href": "/environment" },
-        { "label": "Women's Empowerment", "href": "/women" }
+        { "label": "Events", "href": "/events" },
+        { "label": "News and Notice", "href": "/notice" },
+        { "label": "Carriers", "href": "/carriers" },
+        {
+          "label": "Terms and Conditions",
+          "href": "/terms"
+        }
       ]
     },
     {
       "title": "Get Involved",
+      "items": [{ "label": "Carriers", "href": "/carriers" }]
+    },
+    {
+      "title": "Contact Info",
       "items": [
-        { "label": "Volunteer", "href": "/volunteer" },
-        { "label": "Donate", "href": "/donate" },
-        { "label": "Partner", "href": "/partner" },
-        { "label": "Newsletter", "href": "/newsletter" },
-        { "label": "Carriers", "href": "/carriers" }
+        "Location: Kathmandu, Nepal",
+        "Email: info@nepalcare.org",
+        "Phone: +977-1-234-5678"
       ]
     }
   ],
