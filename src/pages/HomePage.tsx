@@ -4,6 +4,7 @@ import HomeAbout from "../components/container/HomeAbout";
 import HorizontalSlider from "../components/container/HorizontalSlider";
 import Milestones from "../components/container/Milestones";
 import Programs from "../components/container/Programs";
+import ReactHelmet from "../components/container/ReactHelmet";
 import SectionWrapper from "../components/container/SectionWrapper";
 import StoriesSingle from "../components/container/StoriesSingle";
 import TeamsSection from "../components/container/TeamsSection";
@@ -12,6 +13,7 @@ import ThematicArea from "../components/container/ThematicArea";
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-white">
+      <ReactHelmet title="Home-BRDC" description="Home" />
       <main>
         <Banner />
         <HomeAbout />

@@ -120,3 +120,9 @@ export type Carrier = {
   upload_document: string;
   created_at: string;
 };
+
+export type TermsCondition = {
+  id: number;
+  title: string;
+  content: string;
+};

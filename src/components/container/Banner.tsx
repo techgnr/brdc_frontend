@@ -19,7 +19,7 @@ const Banner = () => {
   };
 
   const { data: banner, isLoading } = useFetchData<CarouselGroup[]>(
-    "/carousels",
+    "/carousels/",
     {}
   );
 

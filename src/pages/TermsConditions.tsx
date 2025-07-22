@@ -1,13 +1,13 @@
 import useFetchData from "../hooks/useFetchData";
 import DOMPurify from "dompurify";
-import type { AboutSection } from "../types";
+import type { TermsCondition } from "../types";
 import Loader from "../components/container/Loader";
 import EmptyMessage from "../components/container/EmptyMessage";
 import SectionHeading from "../components/ui/SectionHeading";
 import PageLayout from "../layout/PageLayout";
 
-const TermsCondition = () => {
-  const { data, isLoading } = useFetchData<AboutSection>(`/terms/`, {});
+const TermsConditions = () => {
+  const { data, isLoading } = useFetchData<TermsCondition>(`/terms/`, {});
 
   return (
     <PageLayout pageTitle={"Terms & Conditions"} page={"terms"}>
@@ -26,11 +26,7 @@ const TermsCondition = () => {
           <div
             className="flex flex-col gap-4"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(
-                data?.about_categories?.description ||
-                  data?.description ||
-                  data?.content
-              ),
+              __html: DOMPurify.sanitize(data?.content || ""),
             }}
           ></div>
         </section>
@@ -39,4 +35,4 @@ const TermsCondition = () => {
   );
 };
 
-export default TermsCondition;
+export default TermsConditions;

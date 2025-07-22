@@ -13,7 +13,7 @@ import PublicationDocumentsPage from "./pages/PublicationDocumentsPage";
 import PageDetailsLayout from "./layout/PageDetailsLayout";
 import CarrierPage from "./pages/CarrierPage";
 import NewsNoticePage from "./pages/NewsNoticePage";
-import TermsCondition from "./pages/TermsCondition";
+import TermsConditions from "./pages/TermsConditions";
 
 function App() {
   const router = createBrowserRouter([
@@ -96,7 +96,7 @@ function App() {
         },
         {
           path: "/terms",
-          element: <TermsCondition />,
+          element: <TermsConditions />,
         },
 
         {
