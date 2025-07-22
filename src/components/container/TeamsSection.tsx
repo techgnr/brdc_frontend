@@ -9,10 +9,12 @@ const TeamsSection = ({
   title = "Our Team",
   description = "Meet the passionate individuals working to create positive change in Nepal",
   endpoint = "is_bod_team=true",
+  isHome = false,
 }: {
   title: string;
   description?: string;
   endpoint?: string;
+  isHome?: boolean;
 }) => {
   const { data: teamMember, isLoading } = useFetchData<TeamMember[]>(
     `/teams/?${endpoint}`,
@@ -30,7 +32,7 @@ const TeamsSection = ({
         ) : (
           <>
             {" "}
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
               {teamMember.map((item) => (
                 <div
                   key={item.id}
@@ -55,11 +57,16 @@ const TeamsSection = ({
                 </div>
               ))}
             </div>
-            <div className="mt-8 text-center">
-              <LinkButton path="/team" className="px-6 py-3 mt-6 block mx-auto">
-                View All
-              </LinkButton>
-            </div>
+            {isHome && (
+              <div className="mt-8 text-center">
+                <LinkButton
+                  path="/team"
+                  className="px-6 py-3 mt-6 block mx-auto"
+                >
+                  View All
+                </LinkButton>
+              </div>
+            )}
           </>
         )}
       </div>

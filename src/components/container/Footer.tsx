@@ -11,7 +11,7 @@ const Footer = () => {
               <img
                 src={data.logo.icon}
                 alt="Logo"
-                className="w-24 h-24 rounded-full"
+                className="w-auto h-24 rounded-full"
               />
             </div>
             <p className="text-gray-400 leading-relaxed">

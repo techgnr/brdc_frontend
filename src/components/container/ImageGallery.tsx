@@ -1,4 +1,3 @@
-import LinkButton from "../ui/LinkButton";
 import { Link } from "react-router";
 import useFetchData from "../../hooks/useFetchData";
 import type { Album } from "../../types";

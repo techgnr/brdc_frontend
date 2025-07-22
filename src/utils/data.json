@@ -16,20 +16,20 @@
     {
       "label": "Resources and Media",
       "dropdown": [
-        { "label": "Events", "href": "/events" },
-        { "label": "News and Notice", "href": "/notice" },
-        { "label": "Gallery", "href": "/gallery" },
-        { "label": "Success Stories", "href": "/stories" },
-        { "label": "Blogs", "href": "/blogs" },
+        { "label": "Events", "to": "/events" },
+        { "label": "News and Notice", "to": "/notice" },
+        { "label": "Gallery", "to": "/gallery" },
+        { "label": "Success Stories", "to": "/stories" },
+        { "label": "Blogs", "to": "/blogs" },
         {
           "label": "Publications and Documents",
-          "href": "/publication-document"
+          "to": "/publication-document"
         }
       ]
     },
     {
       "label": "Contact",
-      "href": "/contact"
+      "to": "/contact"
     }
   ],
   "mobileNavigation": {
