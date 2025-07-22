@@ -25,7 +25,7 @@ const GalleryPage = () => {
         <ImagesSingle images={albums as Album} loading={isLoading} />
       ) : (
         <section className="max-w-7xl mx-auto py-10 sm:py-16 md:py-20 pt-10">
-          <div className="flex gap-4 mb-8">
+          <div className="flex gap-4 mb-8 px-4">
             <LinkButton
               path="/gallery/images"
               variant={slug !== "videos" ? "primary" : "secondary"}
