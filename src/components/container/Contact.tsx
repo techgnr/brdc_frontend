@@ -3,7 +3,7 @@ import SectionHeading from "../ui/SectionHeading";
 import ContactForm from "../forms/ContactForm";
 
 const MapEmbed = () => {
-  const mapEmbedHTML = `<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=nepal&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>`;
+  const mapEmbedHTML = `<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=Baijnath+Research+and+Development+Center&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>`;
 
   return (
     <div

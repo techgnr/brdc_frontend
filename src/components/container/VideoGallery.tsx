@@ -2,6 +2,7 @@ import useFetchData from "../../hooks/useFetchData";
 import type { VideoLink } from "../../types";
 import ReactPlayer from "react-player";
 import Loader from "./Loader";
+import EmptyMessage from "./EmptyMessage";
 
 const VideoGallery = () => {
   const { data: videos, isLoading } = useFetchData<VideoLink[]>(
@@ -11,6 +12,10 @@ const VideoGallery = () => {
 
   if (isLoading) {
     return <Loader />;
+  }
+
+  if (!videos || videos.length === 0) {
+    return <EmptyMessage message="No videos available" />;
   }
 
   return (

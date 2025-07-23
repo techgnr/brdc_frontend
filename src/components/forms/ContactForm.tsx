@@ -92,7 +92,6 @@ const ContactForm = () => {
     e.preventDefault();
     mutate(formData, {
       onSuccess: () => {
-        alert("Thank you for your message! We will get back to you soon.");
         setFormData({
           full_name: "",
           email: "",

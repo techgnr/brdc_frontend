@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import useFetchData from "../../hooks/useFetchData";
 import type { Network } from "../../types";
 import Loader from "./Loader";
+import EmptyMessage from "./EmptyMessage";
 
 const HorizontalSlider = () => {
   const { data: network, isLoading } = useFetchData<Network[]>("/network/", {});
@@ -21,6 +22,8 @@ const HorizontalSlider = () => {
         </div>
         {isLoading ? (
           <Loader />
+        ) : network.length === 0 ? (
+          <EmptyMessage message="No data available" />
         ) : (
           <div className="relative">
             <Marquee

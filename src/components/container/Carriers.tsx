@@ -29,7 +29,7 @@ const Carriers = ({
         {isLoading ? (
           <Loader />
         ) : !carriers || carriers.length === 0 ? (
-          <EmptyMessage message="No data available" />
+          <EmptyMessage message="No carriers available." />
         ) : isHome ? (
           <>
             <div className="grid md:grid-cols-3 gap-8">

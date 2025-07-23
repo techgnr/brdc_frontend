@@ -76,21 +76,23 @@ const Banner = () => {
                     <h2 className="text-xl md:text-xl font-semibold mb-2">
                       {heading}
                     </h2>
-                    <h1 className="text-3xl md:text-4xl font-bold mb-5">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-5 line-clamp-2">
                       {title}
                     </h1>
                     <p className="text-md md:text-base leading-relaxed line-clamp-4 mb-3">
                       {description}
                     </p>
-                    <div className="z-50">
-                      <LinkButton
-                        path={primary_button_link}
-                        variant="outline"
-                        className="mt-5 text-white hover:text-primary"
-                      >
-                        {primary_button_label}
-                      </LinkButton>
-                    </div>
+                    {primary_button_label && (
+                      <div className="z-50">
+                        <LinkButton
+                          path={primary_button_link}
+                          variant="outline"
+                          className="mt-5 text-white hover:text-primary"
+                        >
+                          {primary_button_label}
+                        </LinkButton>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
