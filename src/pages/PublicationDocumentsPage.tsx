@@ -25,65 +25,70 @@ const PublicationDocumentsPage = () => {
         ) : !documents || documents.length === 0 ? (
           <EmptyMessage message="No data available" />
         ) : (
-          <table className="w-full">
-            <thead className="bg-primary">
-              <tr className="text-white h-14">
-                {documents.length > 0 &&
-                  Object.keys(documents[0] as Record<string, any>).map(
-                    (key) => (
-                      <th className="px-5 text-start" key={key}>
-                        {key === "id"
-                          ? "S.N"
-                          : key === "title"
-                          ? "Publication and Documents"
-                          : key === "created_at"
-                          ? "Upload Date"
-                          : "Action"}
-                      </th>
-                    )
-                  )}
-              </tr>
-            </thead>
-            <tbody className="bg-white">
-              <PaginatedData data={documents} itemsPerPage={10}>
-                {(items) => (
-                  <>
-                    {items.map((docs, index) => (
-                      <tr
-                        className={`border-b h-14 border-gray-200 ${
-                          index % 2 != 0 ? "bg-gray-50" : ""
-                        }`}
-                      >
-                        <td className="px-5 font-semibold text-gray-500">
-                          {index + 1}
-                        </td>
-                        <td className="px-5 font-semibold text-gray-500">
-                          {docs.title}
-                        </td>
-                        <td className="px-5">
-                          {/* <Link to={docs?.attchments} className="px-6 h-8">
+          <div className="overflow-x-auto px-4 pb-4">
+            <table className="w-full table-auto">
+              <thead className="bg-primary">
+                <tr className="text-white h-14">
+                  {documents.length > 0 &&
+                    Object.keys(documents[0] as Record<string, any>).map(
+                      (key) => (
+                        <th className="px-5 text-start" key={key}>
+                          {key === "id"
+                            ? "S.N"
+                            : key === "title"
+                            ? "Publication and Documents"
+                            : key === "created_at"
+                            ? "Upload Date"
+                            : "Action"}
+                        </th>
+                      )
+                    )}
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                <PaginatedData data={documents} itemsPerPage={10}>
+                  {(items) => (
+                    <>
+                      {items.map((docs, index) => (
+                        <tr
+                          className={`border-b h-14 border-gray-200 ${
+                            index % 2 != 0 ? "bg-gray-50" : ""
+                          }`}
+                        >
+                          <td className="px-5 font-semibold text-gray-500">
+                            {index + 1}
+                          </td>
+                          <td className="px-5 font-semibold text-gray-500 min-w-[200px]">
+                            {docs.title}
+                          </td>
+                          <td className="px-5">
+                            {/* <Link to={docs?.attchments} className="px-6 h-8">
                             Download
                           </Link> */}
-                          <Button
-                            variant="primary"
-                            className="px-6 h-8"
-                            onClick={() =>
-                              downloadFileFromUrl(docs?.attchments, docs?.title)
-                            }
-                          >
-                            Download
-                          </Button>
-                        </td>
-                        <td className="px-5 font-semibold text-gray-500">
-                          {docs.created_at?.slice(0, 10)}
-                        </td>
-                      </tr>
-                    ))}
-                  </>
-                )}
-              </PaginatedData>
-            </tbody>
-          </table>
+                            <Button
+                              variant="primary"
+                              className="px-6 h-8"
+                              onClick={() =>
+                                downloadFileFromUrl(
+                                  docs?.attchments,
+                                  docs?.title
+                                )
+                              }
+                            >
+                              Download
+                            </Button>
+                          </td>
+                          <td className="px-5 font-semibold text-gray-500 min-w-[180px]">
+                            {docs.created_at?.slice(0, 10)}
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  )}
+                </PaginatedData>
+              </tbody>
+            </table>
+          </div>
         )}
       </section>
     </PageLayout>

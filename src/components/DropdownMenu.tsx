@@ -11,14 +11,14 @@ const DropdownMenu = ({
   extraItem?: { label: string; to: string };
 }) => {
   return (
-    <li className="relative header-nav-item group">
+    <li className="relative group">
       <button
-        className={`flex items-center text-gray-700 hover:text-primary font-semibold transition-all duration-200 ease-in-out group-hover:text-primary`}
+        className={`peer flex items-center text-gray-700 hover:text-primary font-semibold transition-all duration-200 ease-in-out group-hover:text-primary`}
       >
         {label} <ChevronDown size={16} className="ml-1" />
       </button>
       <ul
-        className={`absolute z-50 w-max bg-white border border-gray-200 shadow-md rounded-sm mt-2 transition-all duration-200 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible`}
+        className={`absolute z-50 w-max bg-white border border-gray-200 shadow-md rounded-sm mt-2 transition-all duration-200 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible peer-focus:opacity-100 peer-focus:visible`}
       >
         {items.map((item, j) => (
           <li key={j}>

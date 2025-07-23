@@ -22,7 +22,9 @@ const PageBanner = ({
     <div className="flex" style={style}>
       <div className="max-w-7xl mx-auto">
         <div className="text-white">
-          <h1 className="text-3xl font-bold sm:text-4xl">{pageTitle}</h1>
+          <h1 className="text-3xl font-bold text-center sm:text-4xl">
+            {pageTitle}
+          </h1>
           <div className="text-center mt-2 font-semibold">
             <Link to={"/"}>Home</Link> / <span className="">{page}</span>
           </div>

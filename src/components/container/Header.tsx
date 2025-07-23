@@ -120,7 +120,7 @@ const Header = () => {
 
           {isMobileMenuOpen && (
             <div className="md:hidden bg-white border-t border-gray-200 py-4">
-              <ul className="flex flex-col gap-4 font-semibold">
+              <ul className="flex flex-col gap-4 font-semibold relative">
                 <li>
                   <Link to="/" className="text-gray-700 hover:text-primary">
                     Home
