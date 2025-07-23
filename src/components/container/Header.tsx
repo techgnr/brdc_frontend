@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import data from "../../utils/data.json";
 import {
   Mail,
@@ -16,32 +16,10 @@ import DropdownMenu from "../DropdownMenu";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const { data: about } = useFetchData<AboutSection[]>("/aboutsection/", {});
-  const dropdownRefs = useRef<Record<string, HTMLUListElement | null>>({});
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
-  const handleDropdownToggle = (label: string) => {
-    setActiveDropdown(activeDropdown === label ? null : label);
-  };
-
-  const handleClick = () => {
-    setTimeout(() => setActiveDropdown(null), 50);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      Object.values(dropdownRefs.current).forEach((ref) => {
-        if (ref && !ref.contains(event.target as Node)) {
-          setActiveDropdown(null);
-        }
-      });
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   return (
     <div className="border-b-1 border-primary">
@@ -108,10 +86,6 @@ const Header = () => {
                     })) || []
                 }
                 extraItem={{ label: "Our Team", to: "/team" }}
-                activeDropdown={activeDropdown}
-                handleDropdownToggle={handleDropdownToggle}
-                handleClick={handleClick}
-                dropdownRefs={dropdownRefs}
               />
 
               <DropdownMenu
@@ -125,28 +99,16 @@ const Header = () => {
                       state: { id: item.id, name: item.name },
                     })) || []
                 }
-                activeDropdown={activeDropdown}
-                handleDropdownToggle={handleDropdownToggle}
-                handleClick={handleClick}
-                dropdownRefs={dropdownRefs}
               />
 
               {data.navigation.map((item, i) => (
                 <li key={i} className="relative header-nav-item group">
                   {item.dropdown ? (
-                    <DropdownMenu
-                      label={item.label}
-                      items={item.dropdown}
-                      activeDropdown={activeDropdown}
-                      handleDropdownToggle={handleDropdownToggle}
-                      handleClick={handleClick}
-                      dropdownRefs={dropdownRefs}
-                    />
+                    <DropdownMenu label={item.label} items={item.dropdown} />
                   ) : (
                     <Link
                       to={item.to || "#"}
                       className="text-gray-700 hover:text-primary"
-                      onClick={handleClick}
                     >
                       {item.label}
                     </Link>
@@ -177,10 +139,6 @@ const Header = () => {
                       })) || []
                   }
                   extraItem={{ label: "Our Team", to: "/team" }}
-                  activeDropdown={activeDropdown}
-                  handleDropdownToggle={handleDropdownToggle}
-                  handleClick={handleClick}
-                  dropdownRefs={dropdownRefs}
                 />
 
                 <DropdownMenu
@@ -194,28 +152,16 @@ const Header = () => {
                         state: { id: item.id, name: item.name },
                       })) || []
                   }
-                  activeDropdown={activeDropdown}
-                  handleDropdownToggle={handleDropdownToggle}
-                  handleClick={handleClick}
-                  dropdownRefs={dropdownRefs}
                 />
 
                 {data.navigation.map((item, i) => (
                   <li key={i} className="relative header-nav-item group">
                     {item.dropdown ? (
-                      <DropdownMenu
-                        label={item.label}
-                        items={item.dropdown}
-                        activeDropdown={activeDropdown}
-                        handleDropdownToggle={handleDropdownToggle}
-                        handleClick={handleClick}
-                        dropdownRefs={dropdownRefs}
-                      />
+                      <DropdownMenu label={item.label} items={item.dropdown} />
                     ) : (
                       <Link
                         to={item.to || "#"}
                         className="text-gray-700 hover:text-primary"
-                        onClick={handleClick}
                       >
                         {item.label}
                       </Link>
