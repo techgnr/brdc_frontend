@@ -55,11 +55,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-2">
             <Link to="/" className="flex items-center">
-              <img
-                src={data.logo.icon}
-                alt="Logo"
-                className="w-auto h-20 rounded-full"
-              />
+              <img src={data.logo.icon} alt="Logo" className="w-auto h-24" />
             </Link>
             <div className="md:hidden">
               <button onClick={toggleMobileMenu} className="text-gray-700">
@@ -118,59 +114,65 @@ const Header = () => {
             </ul>
           </div>
 
-          {isMobileMenuOpen && (
-            <div className="md:hidden bg-white border-t border-gray-200 py-4">
-              <ul className="flex flex-col gap-4 font-semibold relative">
-                <li>
-                  <Link to="/" className="text-gray-700 hover:text-primary">
-                    Home
-                  </Link>
+          {/* {isMobileMenuOpen && ( */}
+          <div
+            className={`md:hidden bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ease-in-out ${
+              isMobileMenuOpen
+                ? "max-h-[500px] opacity-100 py-4"
+                : "max-h-0 opacity-0"
+            }`}
+          >
+            <ul className="flex flex-col gap-4 font-semibold relative">
+              <li>
+                <Link to="/" className="text-gray-700 hover:text-primary">
+                  Home
+                </Link>
+              </li>
+
+              <DropdownMenu
+                label="Who We Are"
+                items={
+                  about
+                    ?.filter((item) => item.is_who_we_are)
+                    .map((item) => ({
+                      label: item.name,
+                      to: `/who-we-are/${item.id}`,
+                      state: { id: item.id, name: item.name },
+                    })) || []
+                }
+                extraItem={{ label: "Our Team", to: "/team" }}
+              />
+
+              <DropdownMenu
+                label="What We Do"
+                items={
+                  about
+                    ?.filter((item) => item.is_what_we_do)
+                    .map((item) => ({
+                      label: item.name,
+                      to: `/what-we-do/${item.id}`,
+                      state: { id: item.id, name: item.name },
+                    })) || []
+                }
+              />
+
+              {data.navigation.map((item, i) => (
+                <li key={i} className="relative header-nav-item group">
+                  {item.dropdown ? (
+                    <DropdownMenu label={item.label} items={item.dropdown} />
+                  ) : (
+                    <Link
+                      to={item.to || "#"}
+                      className="text-gray-700 hover:text-primary"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
-
-                <DropdownMenu
-                  label="Who We Are"
-                  items={
-                    about
-                      ?.filter((item) => item.is_who_we_are)
-                      .map((item) => ({
-                        label: item.name,
-                        to: `/who-we-are/${item.id}`,
-                        state: { id: item.id, name: item.name },
-                      })) || []
-                  }
-                  extraItem={{ label: "Our Team", to: "/team" }}
-                />
-
-                <DropdownMenu
-                  label="What We Do"
-                  items={
-                    about
-                      ?.filter((item) => item.is_what_we_do)
-                      .map((item) => ({
-                        label: item.name,
-                        to: `/what-we-do/${item.id}`,
-                        state: { id: item.id, name: item.name },
-                      })) || []
-                  }
-                />
-
-                {data.navigation.map((item, i) => (
-                  <li key={i} className="relative header-nav-item group">
-                    {item.dropdown ? (
-                      <DropdownMenu label={item.label} items={item.dropdown} />
-                    ) : (
-                      <Link
-                        to={item.to || "#"}
-                        className="text-gray-700 hover:text-primary"
-                      >
-                        {item.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+              ))}
+            </ul>
+          </div>
+          {/* )} */}
         </div>
       </nav>
     </div>
