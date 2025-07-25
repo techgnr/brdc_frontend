@@ -7,7 +7,7 @@ import type { BlogPost } from "../../types";
 import Loader from "./Loader";
 import EmptyMessage from "./EmptyMessage";
 
-const Programs = ({
+const BlogsSingle = ({
   isHome,
   itemsPerPage = 6,
 }: {
@@ -16,7 +16,10 @@ const Programs = ({
 }) => {
   const { data: blogs, isLoading } = useFetchData<BlogPost[]>("/blogs/", {});
   return (
-    <section id="programs" className="py-10 sm:py-16 md:py-20 bg-gray-50">
+    <section
+      id="programs"
+      className={`py-10 sm:py-16 md:py-20 ${isHome && "bg-gray-50"}`}
+    >
       <div className="max-w-7xl mx-auto px-4">
         <SectionHeading
           title="Our Blogs"
@@ -57,4 +60,4 @@ const Programs = ({
   );
 };
 
-export default Programs;
+export default BlogsSingle;
