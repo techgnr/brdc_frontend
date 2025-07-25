@@ -1,9 +1,9 @@
 import Banner from "../components/container/Banner";
+import BlogsSingle from "../components/container/BlogsSingle";
 import EventsSingle from "../components/container/EventsSingle";
 import HomeAbout from "../components/container/HomeAbout";
 import HorizontalSlider from "../components/container/HorizontalSlider";
 import Milestones from "../components/container/Milestones";
-import Programs from "../components/container/Programs";
 import ReactHelmet from "../components/container/ReactHelmet";
 import SectionWrapper from "../components/container/SectionWrapper";
 import StoriesSingle from "../components/container/StoriesSingle";
@@ -23,7 +23,7 @@ const HomePage = () => {
           <EventsSingle isHome />
           <StoriesSingle isHome />
         </SectionWrapper>
-        <Programs isHome />
+        <BlogsSingle isHome />
         <TeamsSection endpoint="is_bod_team=true" title="BOD Team" isHome />
         <HorizontalSlider />
       </main>
