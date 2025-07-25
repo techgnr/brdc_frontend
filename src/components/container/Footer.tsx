@@ -5,10 +5,14 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="space-y-2">
+        <div className="grid md:grid-cols-5 gap-8">
+          <div className="space-y-2 md:col-span-2">
             <div className="flex items-center">
-              <img src={data.logo.icon} alt="Logo" className="w-auto h-24" />
+              <img
+                src={data.logo.icon}
+                alt="Logo"
+                className="w-auto h-24 object-contain"
+              />
             </div>
             <p className="text-gray-400 leading-relaxed">
               {data.brand.description}

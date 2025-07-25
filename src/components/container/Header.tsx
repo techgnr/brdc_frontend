@@ -54,8 +54,17 @@ const Header = () => {
       <nav className="sticky top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-2">
-            <Link to="/" className="flex items-center">
-              <img src={data.logo.icon} alt="Logo" className="w-auto h-24" />
+            <Link to="/" className="flex items-center pe-2">
+              <img
+                src={data.logo.icon}
+                alt="Logo"
+                className="hidden md:block w-auto h-20 lg:h-24 object-contain"
+              />
+              <img
+                src={data.logo.icon2}
+                alt="Logo"
+                className="md:hidden w-auto h-20 lg:h-24 object-contain"
+              />
             </Link>
             <div className="md:hidden">
               <button onClick={toggleMobileMenu} className="text-gray-700">
@@ -63,7 +72,7 @@ const Header = () => {
               </button>
             </div>
 
-            <ul className="hidden md:flex items-center font-semibold space-x-8">
+            <ul className="hidden md:flex items-center font-semibold space-x-4 md:space-x-8">
               <li>
                 <Link to="/" className="text-gray-700 hover:text-primary">
                   Home
