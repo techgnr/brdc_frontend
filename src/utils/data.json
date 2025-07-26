@@ -5,8 +5,8 @@
     "text": "Baijnath Research and Development Center Pvt. Ltd."
   },
   "contactInfo": {
-    "email": "info@brdc.org",
-    "phone": "+977-1-234-5678"
+    "email": "baijnathrdcenter@brdc.com.np",
+    "phone": "++977 985-1184482"
   },
   "socialLinks": [
     { "name": "Facebook", "url": "#" },
@@ -50,7 +50,7 @@
   "brand": {
     "name": "NepalCare",
     "icon": "Mountain",
-    "description": "Empowering Nepal's communities through sustainable development and compassionate action."
+    "description": "Baijnath Research and Development Center is dedicated to conducting diverse research and development projects across various regions of Nepal"
   },
   "sections": [
     {
@@ -74,13 +74,13 @@
     {
       "title": "Contact Info",
       "items": [
-        "Location: Kathmandu, Nepal",
-        "Email: info@nepalcare.org",
-        "Phone: +977-1-234-5678"
+        "Location:Kusunti -13 ,Lalitpur Nepal",
+        "Email: baijnathrdcenter@brdc.com.np",
+        "Phone: ++977 985-1184482"
       ]
     }
   ],
-  "footerNote": "© 2024 Project. All rights reserved. Making a difference across Nepal's beautiful landscapes.",
+  "footerNote": "© 2025 . All rights reserved. Baijnath Research and Development Center Pvt. Ltd.",
   "banner": [
     {
       "image": "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
