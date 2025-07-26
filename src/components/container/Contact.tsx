@@ -3,7 +3,10 @@ import SectionHeading from "../ui/SectionHeading";
 import ContactForm from "../forms/ContactForm";
 
 const MapEmbed = () => {
-  const mapEmbedHTML = `<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=Baijnath+Research+and+Development+Center&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>`;
+  const mapEmbedHTML = `<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14135.995809707658!2d85.30530146876868!3d27.655504119394696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb177f078f1cd9%3A0xb514415c5a76afb3!2sKusunti%2C%20Lalitpur%2044700!5e0!3m2!1sen!2snp!4v1753512288034!5m2!1sen!2snp"></iframe>`;
+
+
+//  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14135.995809707658!2d85.30530146876868!3d27.655504119394696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb177f078f1cd9%3A0xb514415c5a76afb3!2sKusunti%2C%20Lalitpur%2044700!5e0!3m2!1sen!2snp!4v1753512288034!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
   return (
     <div
@@ -17,53 +20,52 @@ const contactInfo = [
   {
     icon: Building,
     title: "Main Office",
-    details: ["ABC Foundation", "Setopul, Kathmandu 44600", "Nepal"],
+    details: ["Baijnath Research and Development Center Pvt. Ltd.", "Kusunti-13,Lalitpur, Nepal"],
   },
   {
     icon: Phone,
     title: "Phone Numbers",
     details: [
-      "+977-1-234-5678 (Main)",
-      "+977-1-234-5679 (Programs)",
-      "+977-98-1234-5678 (Mobile)",
+      "+977 985-1184482 (Nirajan Khadka)",
+      "+977 9858485557 (Hari Bhakta Saud)",
+      "+977 9843564936 (Sushil Kunwar)",
     ],
   },
   {
     icon: Mail,
     title: "Email Addresses",
-    details: ["info@abc.org", "programs@abc.org", "volunteer@abc.org"],
+    details: ["baijnathrdcenter@brdc.com.np","baijnathrdcenter@gmail.com","khakdkanirazan@brdc.com.np"],
   },
   {
     icon: Clock,
     title: "Office Hours",
     details: [
-      "Monday - Friday: 9:00 AM - 6:00 PM",
-      "Saturday: 10:00 AM - 4:00 PM",
-      "Sunday: Closed",
+      "Sunday - Friday: 9:00 AM - 6:00 PM",
+      "Saturday: Closed",
     ],
   },
 ];
 
 const officeLocations = [
   {
-    name: "Kathmandu Headquarters",
-    address: "Thamel, Kathmandu 44600",
-    phone: "+977-1-234-5678",
-    email: "kathmandu@abc.org",
+    name: "Lalitpur Headquarter",
+    address: "Kusanti-13, Lalitpur 44700",
+    phone: "+977 985-1184482",
+    email: "baijnathrdcenter@brdc.com.np",
     type: "Main Office",
   },
   {
-    name: "Pokhara Regional Office",
-    address: "Lakeside, Pokhara 33700",
-    phone: "+977-61-123-456",
-    email: "pokhara@abc.org",
+    name: "Kailali Regional Office",
+    address: "Dhangadhi, Kailali 10900",
+    phone: "+977 985-1184482",
+    email: "baijnathrdcenter@brdc.com.np",
     type: "Regional Office",
   },
   {
-    name: "Chitwan Field Office",
-    address: "Bharatpur, Chitwan 44200",
-    phone: "+977-56-123-456",
-    email: "chitwan@abc.org",
+    name: "Achham Field Office",
+    address: "Sanfebagar-03 ,Achham 10700",
+    phone: "+977 985-1184482",
+    email: "baijnathrdcenter@brdc.com.np",
     type: "Field Office",
   },
 ];

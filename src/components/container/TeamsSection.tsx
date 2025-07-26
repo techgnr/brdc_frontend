@@ -7,7 +7,8 @@ import Loader from "./Loader";
 
 const TeamsSection = ({
   title = "Our Team",
-  description = "Meet the passionate individuals working to create positive change in Nepal",
+  // description = "Meet our Advisor Team",     //if required will add the description here
+  description="",
   endpoint = "is_bod_team=true",
   isHome = false,
 }: {
