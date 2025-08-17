@@ -25,7 +25,7 @@ const DropdownMenu = ({
             <Link
               to={item.to}
               state={item.state}
-              className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50 hover:text-primary"
+              className="block px-3 py-1.5 max-w-[92vw] text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-100"
             >
               {item.label}
             </Link>
@@ -35,7 +35,7 @@ const DropdownMenu = ({
           <li>
             <Link
               to={extraItem.to}
-              className="block px-3 py-1.5 text-gray-700 hover:bg-gray-50 hover:text-primary"
+              className="block px-3 py-1.5 max-w-[92vw] text-gray-700 hover:bg-gray-50 hover:text-primary border-b border-gray-100"
             >
               {extraItem.label}
             </Link>

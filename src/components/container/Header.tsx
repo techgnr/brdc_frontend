@@ -25,14 +25,14 @@ const Header = () => {
     <div className="border-b-1 border-primary">
       <div className="bg-gray-900 text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-6 flex-wrap">
             <div className="flex items-center space-x-2">
               <Mail size={14} className="text-green-400" />
-              <span>{data.contactInfo.email}</span>
+              <span className="text-xs">{data.contactInfo.email}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Phone size={14} className="text-green-400" />
-              <span>{data.contactInfo.phone}</span>
+              <span className="text-xs">{data.contactInfo.phone}</span>
             </div>
           </div>
           <div className="hidden sm:flex items-center space-x-4">
@@ -125,7 +125,7 @@ const Header = () => {
 
           {/* {isMobileMenuOpen && ( */}
           <div
-            className={`md:hidden bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ease-in-out ${
+            className={`md:hidden bg-white border-t border-gray-200 transition-all duration-300 ease-in-out ${
               isMobileMenuOpen
                 ? "max-h-[500px] opacity-100 py-4"
                 : "max-h-0 opacity-0"
